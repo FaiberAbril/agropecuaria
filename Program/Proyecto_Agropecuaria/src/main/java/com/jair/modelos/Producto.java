@@ -19,7 +19,7 @@ public class Producto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long IdProdcuto;
+	private long IdProducto;
 
 	@Column(length = 50, nullable = false)
 	private String nombreProducto;
@@ -48,11 +48,11 @@ public class Producto {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Producto(long idProdcuto, String nombreProducto, String descripcionProducto, double precioProducto,
+	public Producto(long idProducto, String nombreProducto, String descripcionProducto, double precioProducto,
 			CategoriaProducto categoriaProdProducto, int stockProducto, UnidadMedida unidadMedidaProducto,
 			Date fechaRegistroProdcuto) {
 		super();
-		IdProdcuto = idProdcuto;
+		IdProducto = idProducto;
 		this.nombreProducto = nombreProducto;
 		this.descripcionProducto = descripcionProducto;
 		this.precioProducto = precioProducto;
@@ -62,12 +62,12 @@ public class Producto {
 		this.fechaRegistroProdcuto = fechaRegistroProdcuto;
 	}
 
-	public long getIdProdcuto() {
-		return IdProdcuto;
+	public long getIdProducto() {
+		return IdProducto;
 	}
 
-	public void setIdProdcuto(long idProdcuto) {
-		IdProdcuto = idProdcuto;
+	public void setIdProducto(long idProducto) {
+		IdProducto = idProducto;
 	}
 
 	public String getNombreProducto() {
