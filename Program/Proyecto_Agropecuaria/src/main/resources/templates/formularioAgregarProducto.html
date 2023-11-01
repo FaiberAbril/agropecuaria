@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Agregar Productos</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Agregar Productos</h1>
+    </div>
+
+    <br>
+
+    <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
+
+        <label for="nombreProducto">Producto:</label>
+        <input type="text" th:field="*{nombreProducto}">
+
+        <br>
+
+        <label for="descripcionProducto">Descripción:</label>
+        <input type="text" th:field="*{descripcionProducto}">
+
+        <br>
+
+        <label for="stockProducto">Stock:</label>
+        <input type="text" th:field="*{stockProducto}">
+
+        <br>
+
+        <label for="precioProducto">Precio:</label>
+        <input type="number" th:field="*{precioProducto}">
+
+        <br>
+
+        <label for="categoriaProdProducto">Categoria:</label>
+        <select th:field="*{categoriaProdProducto}" name="select" id="select">
+            <option th:each="CategoriaProducto:${ObjCategoria}" th:value="${CategoriaProducto.IdCategoriaProdcuto}"
+            th:text="${CategoriaProducto.Categoria}"></option>
+        </select>
+
+        <br>
+
+        <label for="unidadMedidaProducto">Unidad de Medida:</label>
+        <select name="select" id="select" th:field="*{unidadMedidaProducto}">
+            <option th:each="UnidadMedida:${ObjUnidadMedida}" th:value="${UnidadMedida.IdUnidadesMedida}"
+            th:text="${UnidadMedida.NombreUnidadMedida}"></option>
+        </select>
+        
+        <br>
+
+        <label for="fechaRegistroProdcuto">Fecha de Registro:</label>
+        <input type="datetime-local" th:field="*{fechaRegistroProdcuto}">
+
+        <br>
+
+        <button type="button">Guardar</button>
+
+
+    </form>
+
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+</html>

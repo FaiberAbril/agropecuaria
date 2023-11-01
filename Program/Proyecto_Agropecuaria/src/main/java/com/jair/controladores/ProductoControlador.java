@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jair.modelos.Producto;
+import com.jair.servicios.CategoriaProductoServicios;
 import com.jair.servicios.ProductoServicios;
+import com.jair.servicios.UnidadMedidaServicios;
 
 @Controller
 @RequestMapping("/producto")
@@ -18,16 +20,24 @@ public class ProductoControlador {
 
 	@Autowired
 	private ProductoServicios productoServicios;
+	@Autowired
+	private CategoriaProductoServicios categoriaServicios;
+	@Autowired
+	private UnidadMedidaServicios medidaServicios;
 	
 	@GetMapping("/")
 	public String paginaProductos(Model model) {
-		model.addAttribute(productoServicios.ListarProducto());
+		model.addAttribute("listaProductos",productoServicios.ListarProducto());
+		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
+		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
 		return "productos";
 	}
 	
 	@GetMapping("/agregarProducto")
 	public String NuevoProducto(Model model) {
 		model.addAttribute("ObjProducto", new Producto());
+		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
+		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
 		return "/formularioAgregarProducto";
 	}
 	
@@ -46,6 +56,8 @@ public class ProductoControlador {
 	@GetMapping("/formActualizarProducto/{IdProducto}")
 	public String FormulairoActualizarProducto(Model model, @PathVariable("IdProducto") Long IdProducto) {
 		model.addAttribute("ObjProductoActualizado", productoServicios.BuscarProducto(IdProducto));
+		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
+		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
 		return "formularioActualizarProducto";
 	}
 	
