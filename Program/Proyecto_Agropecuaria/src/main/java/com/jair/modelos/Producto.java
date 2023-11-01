@@ -6,9 +6,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -30,13 +33,15 @@ public class Producto {
 	@Column(scale = 2, nullable = false)
 	private double precioProducto;
 	
-	@Column(length = 50, nullable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="categoria")
 	private CategoriaProducto categoriaProdProducto;
 	
 	@Column()
 	private int stockProducto;
 	
-	@Column()
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="unidadDeMedida")
 	private UnidadMedida unidadMedidaProducto;
 	
 	@Column()

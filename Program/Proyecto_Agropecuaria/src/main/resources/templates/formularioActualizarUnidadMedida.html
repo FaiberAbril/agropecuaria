@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Actualizar Unidad de Medida</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Actualizar Unidad de Medida</h1>
+    </div>
+
+    <form th:action="@{/unidadMedida/actualizarUnidadMedida}" method="post" th:object="${ObjUnidadMedidaAtualizado}">
+        <input type="hidden" th:field="*{IdUnidadesMedida}" required>
+        <div>
+            <div>
+                <label for="NombreUnidadMedida"></label>
+                <input type="text" th:field="*{NombreUnidadMedida}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="SimboloUnidadMedida"></label>
+                <input type="text" th:field="*{SimboloUnidadMedida}">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+
+    </form>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+</html>

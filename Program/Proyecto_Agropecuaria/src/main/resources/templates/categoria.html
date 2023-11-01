@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Categorias</title>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <h1>Categorias</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/principal/}">
+                <button class="btn btn-primary" type="submit">Volver</button>
+            </a>
+        </div>
+        <div class="col">
+            <a th:href="@{/categoria/agregarCategoria}">
+                <button class="btn btn-primary" type="submit">Nueva Categoria</button>
+            </a>
+        </div>
+    </div>
+
+
+    <div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Descripción</th>
+                        <th>Actulizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="CategoriaProducto:${listaCategoria}">
+                        <td th:text="${CategoriaProducto.Categoria}"></td>
+                        <td th:text="${CategoriaProducto.descripcionCategoria}"></td>
+                        <td>
+                            <a
+                                th:href="@{/categoria/formActualizarCategoria/{IdCategoriaProdcuto}(IdCategoriaProdcuto=${CategoriaProducto.IdCategoriaProdcuto})}">
+                                <button type="button">Actulizar</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                th:href="@{/categoria/eliminarCategoria/{IdCategoriaProdcuto}(IdCategoriaProdcuto=${CategoriaProducto.IdCategoriaProdcuto})}">
+                                <button type="button">Eliminar</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+
+</html>

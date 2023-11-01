@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Principal</title>
+</head>
+<body>
+    
+    <div>
+        <div class="container text-center text-darck mb-5">
+            <h1>Pagina Principal</h1>
+        </div>
+        <div class="container text-center mt-5">
+            <div class="row">
+                <div class="col">
+                    <a th:href="@{/principal/clientes}">
+                        <button type="button" class="btn btn-primary">Clientes</button>
+                    </a>
+                </div>
+                <div class="col">
+                    <a th:href="@{/principal/productos}">
+                        <button type="button" class="btn btn-primary">Productos</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+</html>

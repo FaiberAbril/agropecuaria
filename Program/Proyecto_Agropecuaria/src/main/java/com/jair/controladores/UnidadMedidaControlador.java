@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.jair.modelos.UnidadMedida;
 import com.jair.servicios.UnidadMedidaServicios;
 
@@ -21,7 +20,7 @@ public class UnidadMedidaControlador {
 	
 	@GetMapping("/")
 	public String paginaUnidadMedida(Model model) {
-		model.addAttribute(medidaServicios.ListarUnidadMedida());
+		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
 		return "unidadMedida";
 	}
 	
@@ -32,7 +31,7 @@ public class UnidadMedidaControlador {
 	}
 	
 	@PostMapping("/guardarunidadMedida")
-	public String GuardarUnidadMedida(@ModelAttribute("ObjUnidadMediad") UnidadMedida medida) {
+	public String GuardarUnidadMedida(@ModelAttribute("ObjUnidadMedida") UnidadMedida medida) {
 		medidaServicios.CrearUnidadMedida(medida);
 		return "redirect:/unidadMedida/";
 	}
@@ -50,7 +49,7 @@ public class UnidadMedidaControlador {
 	}
 	
 	@PostMapping("/actualizarUnidadMedida")
-	public String ActualizarUnidadMedida(@ModelAttribute("ObjUnidadMedidaActualizado") UnidadMedida medida) {
+	public String ActualizarUnidadMedida(@ModelAttribute("ObjUnidadMedidaAtualizado") UnidadMedida medida) {
 		medidaServicios.ActualizarUnidadMedida(medida);
 		return "redirect:/unidadMedida/";
 	}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Unidades de Medida</title>
+</head>
+<body>
+    
+    <div>
+        <div>
+            <h1>Unidades de Medida</h1>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unidad de Medida</th>
+                        <th>Simbolo</th>
+                        <th>Actulizar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="UnidadMedida:${listaUnidadesMedida}">
+                        <td th:text="${UnidadMedida.NombreUnidadMedida}"></td>
+                        <td th:text="${UnidadMedida.SimboloUnidadMedida}"></td>
+                        <td>
+                            <a
+                                th:href="@{/unidadMedida/formActualizarunidadMedida/{IdUnidadesMedida}(IdUnidadesMedida=${UnidadMedida.IdUnidadesMedida})}">
+                                <button type="button">Actulizar</button>
+                            </a>
+                        </td>
+                        <td>
+                            <a
+                                th:href="@{/unidadMedida/eliminarUnidadMedida/{IdUnidadesMedida}(IdUnidadesMedida=${UnidadMedida.IdUnidadesMedida})}">
+                                <button type="button">Eliminar</button>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+</html>

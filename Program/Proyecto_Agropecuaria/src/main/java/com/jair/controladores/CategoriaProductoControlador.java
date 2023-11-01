@@ -21,7 +21,7 @@ public class CategoriaProductoControlador {
 	
 	@GetMapping("/")
 	public String PaginaCategorias(Model model) {
-		model.addAttribute(categoriaServicios.ListarCategoria());
+		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
 		return "categoria";
 	}
 	

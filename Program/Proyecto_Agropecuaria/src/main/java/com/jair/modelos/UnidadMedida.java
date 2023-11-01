@@ -16,16 +16,20 @@ public class UnidadMedida {
 	private long IdUnidadesMedida;
 	
 	@Column(length = 20, nullable = false)
-	private String UnidadMedida;
+	private String NombreUnidadMedida;
+	
+	@Column(length = 5, nullable = false)
+	private String SimboloUnidadMedida; 
 	
 	public UnidadMedida() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public UnidadMedida(long idUnidadesMedida, String unidadMedida) {
+	public UnidadMedida(long idUnidadesMedida, String nombreUnidadMedida, String simboloUnidadMedida) {
 		super();
 		IdUnidadesMedida = idUnidadesMedida;
-		UnidadMedida = unidadMedida;
+		NombreUnidadMedida = nombreUnidadMedida;
+		SimboloUnidadMedida = simboloUnidadMedida;
 	}
 
 	public long getIdUnidadesMedida() {
@@ -36,11 +40,20 @@ public class UnidadMedida {
 		IdUnidadesMedida = idUnidadesMedida;
 	}
 
-	public String getUnidadMedida() {
-		return UnidadMedida;
+	public String getNombreUnidadMedida() {
+		return NombreUnidadMedida;
 	}
 
-	public void setUnidadMedida(String unidadMedida) {
-		UnidadMedida = unidadMedida;
+	public void setNombreUnidadMedida(String nombreUnidadMedida) {
+		NombreUnidadMedida = nombreUnidadMedida;
 	}
+
+	public String getSimboloUnidadMedida() {
+		return SimboloUnidadMedida;
+	}
+
+	public void setSimboloUnidadMedida(String simboloUnidadMedida) {
+		SimboloUnidadMedida = simboloUnidadMedida;
+	}
+	
 }
