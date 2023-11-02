@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title>Agregar Cliente</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Agregar Cliente</h1>
+    </div>
+
+    <form th:action="@{/cliente/guardarCliente}" method="post" th:object="${ObjCliente}">
+
+        <div>
+            <div>
+                <label for="nombreCliente">Nombre:</label>
+                <input type="text" th:field="*{nombreCliente}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="apellidoCliente">Apellido:</label>
+                <input type="text" th:field="*{apellidoCliente}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="direccion">Dirección:</label>
+                <input type="text" th:field="*{direccion}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="telefono">Telefono:</label>
+                <input type="text" th:field="*{telefono}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="email">Correo Electronico:</label>
+                <input type="text" th:field="*{email}">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <label for="CedulaCliente">Documento de Identidad:</label>
+                <input type="text" th:field="*{CedulaCliente}">
+            </div>
+        </div>
+
+        <div>
+            <button type="submit">Guardar</button>
+        </div>
+
+    </form>
+
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+</body>
+</html>

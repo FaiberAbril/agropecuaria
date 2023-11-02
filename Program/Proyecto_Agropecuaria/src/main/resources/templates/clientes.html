@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<title>Clientes</title>
 </head>
+
 <body>
-    
+
+	<div>
+		<h1>Clientes</h1>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col">
+			<a th:href="@{/principal/}">
+				<button class="btn btn-primary" type="submit">Volver</button>
+			</a>
+		</div>
+		<div class="col">
+			<a th:href="@{/cliente/agregarCliente}">
+				<button class="btn btn-primary" type="submit">Nuevo Cliente</button>
+			</a>
+		</div>
+	</div>
+	<br>
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Dirección</th>
+					<th>Telefono</th>
+					<th>Email</th>
+					<th>Documento de Identidad</th>
+					<th>Actualizar</th>
+					<th>Eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Cliente:${listaClientes}">
+					<td th:text="${Cliente.nombreCliente}"></td>
+					<td th:text="${Cliente.apellidoCliente}"></td>
+					<td th:text="${Cliente.direccion}"></td>
+					<td th:text="${Cliente.telefono}"></td>
+					<td th:text="${CLiente.email}"></td>
+					<td th:text="${CLiente.CedulaCliente}"></td>
+					<td>
+						<a th:href="@{/cliente/formActualizarCliente/{idCliente}(idCliente=${CLiente.idCliente})}">
+							<button type="button">Actulizar</button>
+						</a>
+					</td>
+					<td>
+						<a th:href="@{/producto/eliminarProducto/{idCliente}(idCliente=${CLiente.idCliente})}">
+							<button type="button">Eliminar</button>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
 </body>
+
 </html>

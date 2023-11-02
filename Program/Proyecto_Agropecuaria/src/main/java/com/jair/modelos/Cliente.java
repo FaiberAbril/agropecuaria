@@ -1,8 +1,5 @@
 package com.jair.modelos;
 
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,8 +7,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name= "clientes")
@@ -39,17 +34,12 @@ public class Cliente {
 	@Column(length = 12, nullable = false, unique = true)
 	private String CedulaCliente;
 	
-	@Column
-	@DateTimeFormat(pattern= "yyyy-MM-dd")
-	@Temporal(TemporalType.DATE)
-	private Date fechaNacimiento;
-	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Cliente(long idCliente, String nombreCliente, String apellidoCliente, String direccion, String telefono,
-			String email, String cedulaCliente, Date fechaNacimiento) {
+			String email, String cedulaCliente) {
 		super();
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
@@ -58,7 +48,6 @@ public class Cliente {
 		this.telefono = telefono;
 		this.email = email;
 		CedulaCliente = cedulaCliente;
-		this.fechaNacimiento = fechaNacimiento;
 	}
 
 	public long getIdCliente() {
@@ -117,11 +106,5 @@ public class Cliente {
 		CedulaCliente = cedulaCliente;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
 }
