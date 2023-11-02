@@ -11,7 +11,7 @@
 <body>
 
 	<div>
-		<h1>Clientes</h1>
+		<h1>Cliente</h1>
 	</div>
 	<br>
 	<div class="row">
@@ -47,15 +47,15 @@
 					<td th:text="${Cliente.apellidoCliente}"></td>
 					<td th:text="${Cliente.direccion}"></td>
 					<td th:text="${Cliente.telefono}"></td>
-					<td th:text="${CLiente.email}"></td>
-					<td th:text="${CLiente.CedulaCliente}"></td>
+					<td th:text="${Cliente.email}"></td>
+					<td th:text="${Cliente.CedulaCliente}"></td>
 					<td>
-						<a th:href="@{/cliente/formActualizarCliente/{idCliente}(idCliente=${CLiente.idCliente})}">
+						<a th:href="@{/cliente/formActualizarCliente/{idCliente}(idCliente=${Cliente.idCliente})}">
 							<button type="button">Actulizar</button>
 						</a>
 					</td>
 					<td>
-						<a th:href="@{/producto/eliminarProducto/{idCliente}(idCliente=${CLiente.idCliente})}">
+						<a th:href="@{/producto/eliminarProducto/{idCliente}(idCliente=${Cliente.idCliente})}">
 							<button type="button">Eliminar</button>
 						</a>
 					</td>
