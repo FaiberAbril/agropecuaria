@@ -12,6 +12,12 @@
         <h1>Agregar Productos</h1>
     </div>
 
+    <div>
+        <a th:href="@{/producto/}">
+            <button class="btn btn-primary" type="submit">Volver</button>
+        </a>
+    </div>
+
     <br>
 
     <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
@@ -38,7 +44,7 @@
 
         <label for="categoriaProdProducto">Categoria:</label>
         <select th:field="*{categoriaProdProducto}" name="select" id="select">
-            <option th:each="CategoriaProducto:${ObjCategoria}" th:value="${CategoriaProducto.IdCategoriaProdcuto}"
+            <option th:each="CategoriaProducto:${listaCategoria}" th:value="${CategoriaProducto.IdCategoriaProdcuto}"
             th:text="${CategoriaProducto.Categoria}"></option>
         </select>
 
@@ -46,7 +52,7 @@
 
         <label for="unidadMedidaProducto">Unidad de Medida:</label>
         <select name="select" id="select" th:field="*{unidadMedidaProducto}">
-            <option th:each="UnidadMedida:${ObjUnidadMedida}" th:value="${UnidadMedida.IdUnidadesMedida}"
+            <option th:each="UnidadMedida:${listaUnidadesMedida}" th:value="${UnidadMedida.IdUnidadesMedida}"
             th:text="${UnidadMedida.NombreUnidadMedida}"></option>
         </select>
         
@@ -57,7 +63,7 @@
 
         <br>
 
-        <button type="button">Guardar</button>
+        <button type="submit">Guardar</button>
 
 
     </form>

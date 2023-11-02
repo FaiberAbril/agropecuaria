@@ -9,7 +9,20 @@
 <body>
 
     <div><h1>Inventario</h1></div>
-    
+    <br>
+    <div class="row">
+        <div class="col">
+            <a th:href="@{/principal/}">
+                <button class="btn btn-primary" type="submit">Volver</button>
+            </a>
+        </div>
+        <div class="col">
+            <a th:href="@{/producto/agregarProducto}">
+                <button class="btn btn-primary" type="submit">Nuevo Pedido</button>
+            </a>
+        </div>
+    </div>
+    <br>
     <div>
         <table>
             <thead>
@@ -27,17 +40,17 @@
             </thead>
             <tbody>
                 <tr th:each="Producto:${listaProductos}">
-                    <td th:text="Producto.nombreProducto"></td>
-                    <td th:text="Producto.descripcionProducto"></td>
-                    <td th:text="Producto.stockProducto"></td>
-                    <td th:text="Producto.precioProducto"></td>
+                    <td th:text="${Producto.nombreProducto}"></td>
+                    <td th:text="${Producto.descripcionProducto}"></td>
+                    <td th:text="${Producto.stockProducto}"></td>
+                    <td th:text="${Producto.precioProducto}"></td>
                     <td>
-                        <span th:text="Producto.categoriaProdProducto"></span>
+                        <span th:text="${Producto.categoriaProdProducto.Categoria}"></span>
                     </td>
                     <td>
-                        <span th:text="Producto.unidadMedidaProducto"></span>
+                        <span th:text="${Producto.unidadMedidaProducto.SimboloUnidadMedida}"></span>
                     </td>
-                    <td th:text="Producto.fechaRegistroProdcuto"></td>
+                    <td th:text="${Producto.fechaRegistroProdcuto}"></td>
                     <td>
                         <a
                             th:href="@{/producto/formActualizarProducto/{IdProducto}(IdProducto=${Producto.IdProducto})}">

@@ -28,8 +28,6 @@ public class ProductoControlador {
 	@GetMapping("/")
 	public String paginaProductos(Model model) {
 		model.addAttribute("listaProductos",productoServicios.ListarProducto());
-		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
-		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
 		return "productos";
 	}
 	
