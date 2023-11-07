@@ -19,7 +19,7 @@
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
                     <a th:href="@{/principal/}" class="text-nowrap logo-img">
-                        <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" width="180" alt="" />
+                        <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" class="img-fluid" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -120,92 +120,156 @@
                 </nav>
             </header>
             <!--  Header End -->
-        </div>
-        <div class="container-fluid">
-            <app-basic-table class="ng-star-inserted"><mat-card
-                    class="mat-mdc-card mdc-card cardWithShadow"><mat-card-header class="mat-mdc-card-header d-flex">
-                        <div class="mat-mdc-card-header-text"><mat-card-title class="mat-mdc-card-title">Top
-                                Projects</mat-card-title><mat-card-subtitle class="mat-mdc-card-subtitle mat-body-1">top
-                                new products</mat-card-subtitle></div>
-                    </mat-card-header><mat-card-content class="mat-mdc-card-content">
-                        <div class="table-responsive m-t-30">
-                            <table ngskiphydration="true" mat-table=""
-                                class="mat-mdc-table mdc-data-table__table cdk-table w-100" role="table">
-                                <thead role="rowgroup">
-                                    <tr role="row" mat-header-row=""
-                                        class="mat-mdc-header-row mdc-data-table__header-row cdk-header-row ng-star-inserted">
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Producto</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-name mat-column-name ng-star-inserted">
-                                            Descripción</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-priority mat-column-priority ng-star-inserted">
-                                            Stock</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 cdk-column-budget mat-column-budget ng-star-inserted">
-                                            Precio</th><!---->    
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Categoria</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Unidad de Medida</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Fecha de Ingreso</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Producto</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Actualizar</th>
-                                        <th role="columnheader" mat-header-cell=""
-                                            class="mat-mdc-header-cell mdc-data-table__header-cell cdk-header-cell f-w-600 mat-subtitle-1 f-s-14 p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted">
-                                            Eliminar</th>
-                                    </tr><!---->
-                                </thead>
-                                <tbody role="rowgroup" class="mdc-data-table__content">
-                                    <tr role="row" mat-row=""
-                                        class="mat-mdc-row mdc-data-table__row cdk-row ng-star-inserted">
-                                        <td mat-cell=""
-                                            class="mat-mdc-cell mdc-data-table__cell cdk-cell p-l-0 cdk-column-assigned mat-column-assigned ng-star-inserted"
-                                            role="cell">
-                                            <div class="d-flex align-items-center"><img alt="users" width="40"
-                                                    class="rounded-circle" src="assets/images/profile/user-1.jpg">
-                                                <div class="m-l-16">
-                                                    <h6 class="mat-subtitle-1 f-s-14 f-w-600"> Sunil Joshi </h6><span
-                                                        class="mat-body-1 f-s-12"> Web Designer </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td mat-cell=""
-                                            class="mat-mdc-cell mdc-data-table__cell cdk-cell mat-body-1 cdk-column-name mat-column-name ng-star-inserted"
-                                            role="cell"> Elite Admin </td>
-                                        <td mat-cell=""
-                                            class="mat-mdc-cell mdc-data-table__cell cdk-cell cdk-column-priority mat-column-priority ng-star-inserted"
-                                            role="cell"><span
-                                                class="bg-light-accent text-accent rounded f-w-600 p-6 p-y-4 f-s-12 ng-star-inserted">
-                                                Low </span><!----><!----><!----><!----><!----></td>
-                                        <td mat-cell=""
-                                            class="mat-mdc-cell mdc-data-table__cell cdk-cell mat-body-1 cdk-column-budget mat-column-budget ng-star-inserted"
-                                            role="cell"> $3.9k </td><!---->
-                                    </tr>
-                                </tbody>
-                                <tfoot role="rowgroup" class="mat-mdc-table-sticky"
-                                    style="display: none; bottom: 0px; z-index: 10;"><!----></tfoot>
-                            </table>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 col-xl-3 col-lg-6">
+                        <div class="card overflow-hidden rounded-2">
+                            <div class="position-relative">
+                                <div class="card-body pt-3 p-4 row">
+                                    <div class="col-6 text-center mt-2">
+                                        <h6 class="fw-semibold fs-4">Agregar Producto</h6>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a th:href="@{/producto/agregarProducto}"
+                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Add To Cart"><i class="ti ti-clipboard-plus fs-4"></i></a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </mat-card-content></mat-card>
-            </app-basic-table>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card overflow-hidden rounded-2">
+                            <div class="position-relative">
+                                <div class="card-body pt-3 p-4 row">
+                                    <div class="col-6 text-center mt-2">
+                                        <h6 class="fw-semibold fs-4">Administrar Categorias</h6>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a th:href="@{/categoria/}"
+                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Add To Cart"><i class="ti ti-layout-grid fs-4"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="card overflow-hidden rounded-2">
+                            <div class="position-relative">
+                                <div class="card-body pt-3 p-4 row">
+                                    <div class="col-6 text-center mt-2">
+                                        <h6 class="fw-semibold fs-4">Unidades de Medida </h6>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a th:href="@{/categoria/}"
+                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Add To Cart"><i class="ti ti-ruler-measure fs-4"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
+                                <div class="table-responsive">
+                                    <table class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Producto</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Precio</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Categoria</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Stock</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Unidad de Medida</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Fecha de Registro</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Eliminar</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Actualizar</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="Producto:${listaProductos}">
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.nombreProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.precioProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <span class="fw-normal"
+                                                        th:text="${Producto.categoriaProdProducto.Categoria}"></span>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <p class="mb-0 fw-normal" th:text="${Producto.stockProducto}"></p>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <span class="fw-normal"
+                                                        th:text="${Producto.unidadMedidaProducto.SimboloUnidadMedida}"></span>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.fechaRegistroProdcuto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                            <a th:href="@{/producto/eliminarProducto/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                <button type="button"
+                                                                    class="bg-primary btn-primary btn-outline-primary">Eliminar</button>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                            <a th:href="@{/producto/eliminarProducto/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                <button type="button"
+                                                                    class="bg-primary btn-primary btn-outline-primary">Actualizar</button>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
     <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
     <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/sidebarmenu.js}"></script>
     <script th:src="@{/js/app.min.js}"></script>
-    <script th:src="@{/libs/apexcharts/dist/locales/apexcharts.min.js}"></script>
+    <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
     <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
     <script th:src="@{/js/dashboard.js}"></script>
 </body>
