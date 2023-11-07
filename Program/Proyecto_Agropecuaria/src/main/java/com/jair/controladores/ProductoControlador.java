@@ -36,7 +36,7 @@ public class ProductoControlador {
 		model.addAttribute("ObjProducto", new Producto());
 		model.addAttribute("listaCategoria",categoriaServicios.ListarCategoria());
 		model.addAttribute("listaUnidadesMedida",medidaServicios.ListarUnidadMedida());
-		return "/formularioAgregarProducto";
+		return "formularioAgregarProducto";
 	}
 	
 	@PostMapping("/guardarProducto")

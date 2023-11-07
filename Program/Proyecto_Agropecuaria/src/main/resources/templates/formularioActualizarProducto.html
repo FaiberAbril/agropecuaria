@@ -131,10 +131,13 @@
                 <div class="col-lg-12 d-flex align-items-stretch">
                     <div class="card w-100">
                         <div class="card-body p-4">
-                            <h5 class="card-title fw-semibold mb-4"> Agregar Productos</h5>
+                            <h5 class="card-title fw-semibold mb-4">Actualizar producto</h5>
                             <div class="card-body">
-                                <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
-
+                                <form th:action="@{/producto/actualizarProducto}" method="post" th:object="${ObjProductoActualizado}">
+                                    <div>
+                                        <!--Input whith Id Hidden-->
+                                        <input type="hidden" class="form-control" th:field="*{IdProducto}">
+                                    </div>
                                     <div>
                                         <label for="nombreProducto" class="form-label">Producto:</label>
                                         <input type="text" class="form-control" th:field="*{nombreProducto}">
@@ -169,7 +172,7 @@
                                     </div>
                                     <div>
                                         <label class="form-label" for="fechaRegistroProdcuto">Fecha de Registro:</label>
-                                        <input class="form-control" type="date" th:field="*{fechaRegistroProdcuto}">
+                                        <input  class="form-control" type="text" placeholder="Disabled input" disabled th:field="*{fechaRegistroProdcuto}" th:text="${fechaRegistroProdcuto}">
                                     </div>
                                     <div class="mt-4">
                                         <button class="btn btn-primary" type="submit">Guardar</button>

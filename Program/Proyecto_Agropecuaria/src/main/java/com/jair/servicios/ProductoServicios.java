@@ -34,4 +34,12 @@ public class ProductoServicios {
 		return productoRepository.findAll();
 	}
 	
+	public double CapturaPrecioProducto(Long IdProducto) {
+		return productoRepository.findById(IdProducto).get().getPrecioProducto();
+	}
+	
+	public double CapturaStockProducto(Long IdProdcuto) {
+		return productoRepository.findById(IdProdcuto).get().getStockProducto();
+	}
+	
 }
