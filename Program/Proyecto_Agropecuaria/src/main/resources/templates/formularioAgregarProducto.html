@@ -120,12 +120,12 @@
                 </nav>
             </header>
             <!--  Header End -->
-           
+
 
 
             <!--Body Start-->
 
-            
+
             <div class="container-fluid">
                 <!--Cards para mis Vinculos Internos Start-->
                 <div class="row">
@@ -187,55 +187,50 @@
                     <div class="card w-100">
                         <div class="card-body p-4">
                             <h5 class="card-title fw-semibold mb-4"> Agregar Productos</h5>
-                           <div class="card-body">
-                            <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
+                            <div class="card-body">
+                                <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
 
-                                <label for="nombreProducto"  class="form-label">Producto:</label>
-                                <input type="text"  class="form-control" th:field="*{nombreProducto}">
-                        
-                                <br>
-                        
-                                <label for="descripcionProducto">Descripción:</label>
-                                <input type="text" th:field="*{descripcionProducto}">
-                        
-                                <br>
-                        
-                                <label for="stockProducto">Stock:</label>
-                                <input type="text" th:field="*{stockProducto}">
-                        
-                                <br>
-                        
-                                <label for="precioProducto">Precio:</label>
-                                <input type="number" th:field="*{precioProducto}">
-                        
-                                <br>
-                        
-                                <label for="categoriaProdProducto">Categoria:</label>
-                                <select th:field="*{categoriaProdProducto}" name="select" id="select">
-                                    <option th:each="CategoriaProducto:${listaCategoria}" th:value="${CategoriaProducto.IdCategoriaProdcuto}"
-                                    th:text="${CategoriaProducto.Categoria}"></option>
-                                </select>
-                        
-                                <br>
-                        
-                                <label for="unidadMedidaProducto">Unidad de Medida:</label>
-                                <select name="select" id="select" th:field="*{unidadMedidaProducto}">
-                                    <option th:each="UnidadMedida:${listaUnidadesMedida}" th:value="${UnidadMedida.IdUnidadesMedida}"
-                                    th:text="${UnidadMedida.NombreUnidadMedida}"></option>
-                                </select>
-                                
-                                <br>
-                        
-                                <label for="fechaRegistroProdcuto">Fecha de Registro:</label>
-                                <input type="date" th:field="*{fechaRegistroProdcuto}">
-                        
-                                <br>
-                        
-                                <button type="submit">Guardar</button>
-                        
-                        
-                            </form>
-                           </div>
+                                    <div>
+                                        <label for="nombreProducto" class="form-label">Producto:</label>
+                                        <input type="text" class="form-control" th:field="*{nombreProducto}">
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="descripcionProducto">Descripción:</label>
+                                        <input class="form-control" type="text" th:field="*{descripcionProducto}">
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="stockProducto">Stock:</label>
+                                        <input class="form-control" type="text" th:field="*{stockProducto}">
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="precioProducto">Precio:</label>
+                                        <input class="form-control" type="number" th:field="*{precioProducto}">
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="categoriaProdProducto">Categoria:</label>
+                                        <select class="form-select" th:field="*{categoriaProdProducto}" name="select" id="select">
+                                            <option th:each="CategoriaProducto:${listaCategoria}"
+                                                th:value="${CategoriaProducto.IdCategoriaProdcuto}"
+                                                th:text="${CategoriaProducto.Categoria}"></option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="unidadMedidaProducto">Unidad de Medida:</label>
+                                        <select class="form-select" name="select" id="select" th:field="*{unidadMedidaProducto}">
+                                            <option th:each="UnidadMedida:${listaUnidadesMedida}"
+                                                th:value="${UnidadMedida.IdUnidadesMedida}"
+                                                th:text="${UnidadMedida.NombreUnidadMedida}"></option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="form-label" for="fechaRegistroProdcuto">Fecha de Registro:</label>
+                                        <input class="form-control" type="date" th:field="*{fechaRegistroProdcuto}">
+                                    </div>
+                                    <div>
+                                        <button class="btn-primary" type="submit">Guardar</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
