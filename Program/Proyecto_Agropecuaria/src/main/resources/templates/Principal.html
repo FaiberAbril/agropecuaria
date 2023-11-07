@@ -18,8 +18,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+          <a href="#" class="text-nowrap logo-img">
+            <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" width="120" alt="" height="120" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -37,87 +37,43 @@
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
-                <span class="hide-menu">Dashboard</span>
+                <span class="hide-menu">Pagina Principal</span>
               </a>
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">UI COMPONENTS</span>
-            </li>
-            <!--li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                <span class="hide-menu">Buttons</span>
-              </a>
+              <span class="hide-menu">Inventario</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/producto/}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-package"></i>
                 </span>
-                <span class="hide-menu">Alerts</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Card</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-file-description"></i>
-                </span>
-                <span class="hide-menu">Forms</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Typography</span>
+                <span class="hide-menu">Productos</span>
               </a>
             </li>
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">AUTH</span>
+              <span class="hide-menu">Administración</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/cliente/}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-login"></i>
+                  <i class="ti ti-user"></i>
                 </span>
-                <span class="hide-menu">Login</span>
+                <span class="hide-menu">Clientes</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/cliente/}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-user-plus"></i>
+                  <i class="ti ti-school"></i>
                 </span>
-                <span class="hide-menu">Register</span>
-              </a>
-            </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">EXTRA</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./icon-tabler.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-mood-happy"></i>
-                </span>
-                <span class="hide-menu">Icons</span>
+                <span class="hide-menu">Profesionales</span>
               </a>
             </li>
           </ul>
-        </nav-->
+        </nav>
         <!-- End Sidebar navigation -->
       </div>
       <!-- End Sidebar scroll-->
@@ -134,15 +90,10 @@
                 <i class="ti ti-menu-2"></i>
               </a>
             </li>
-            <!--li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
-              </a>
-            </li-->
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item align-items-center justify-content-between"><h1>Agropecuaria el Rovirense</h1></li>
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
@@ -222,13 +173,13 @@
               <div class="position-relative">
                 <div class="card-body pt-3 p-4 row">
                   <div class="col-6 text-center mt-2">
-                    <h6 class="fw-semibold fs-4">Profecionales</h6>
+                    <h6 class="fw-semibold fs-4">Profesionales</h6>
                   </div>
                   <div class="col-6 text-center">
-                    <a th:href="@{/categoria/agregarCategoria}"
+                    <a th:href="@{/profesional/}"
                       class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
                       data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Add To Cart"><i
-                        class="ti ti-briefcase fs-4"></i></a>
+                        class="ti ti-school fs-4"></i></a>
                   </div>
                 </div>
               </div>
