@@ -13,33 +13,41 @@ public class ProductoServicios {
 
 	@Autowired
 	private productoRepository productoRepository;
-	
+
 	public void CrearProducto(Producto producto) {
 		productoRepository.save(producto);
 	}
-	
+
 	public void ActualizarProducto(Producto producto) {
 		productoRepository.save(producto);
 	}
-	
+
 	public void EliminarProducto(Long IdProdcuto) {
 		productoRepository.deleteById(IdProdcuto);
 	}
-	
+
 	public Producto BuscarProducto(Long IdProdcuto) {
 		return productoRepository.findById(IdProdcuto).get();
 	}
-	
-	public List<Producto> ListarProducto(){
+
+	public List<Producto> ListarProducto() {
 		return productoRepository.findAll();
+
 	}
-	
-	public double CapturaPrecioProducto(Long IdProducto) {
-		return productoRepository.findById(IdProducto).get().getPrecioProducto();
+
+	public  double TotalPrecio() {
+		return productoRepository.findAll().stream().mapToDouble(Producto -> Producto.getPrecioProducto()).sum();
 	}
-	
-	public double CapturaStockProducto(Long IdProdcuto) {
-		return productoRepository.findById(IdProdcuto).get().getStockProducto();
+
+	public double TotalStock() {
+		return productoRepository.findAll().stream().mapToDouble(Producto -> Producto.getStockProducto()).sum();
 	}
-	
+
+	public double TotalInventario() {
+		double totalPrecio = TotalPrecio();
+		double tolalStock = TotalStock();
+		double totalInventario = tolalStock * totalPrecio;
+		return totalInventario;
+	}
+
 }
