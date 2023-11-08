@@ -20,4 +20,8 @@ public class VentaServicios {
 		return repository.findAll();
 	}
 	
+	public long IdProducto(long IdVenta) {
+		return repository.findById(IdVenta).get();
+	}
+	
 }
