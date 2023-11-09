@@ -46,10 +46,16 @@ public class VentaControlador {
 		int Cantidad = venta.getCantidad();
 		int Stock = venta.getProductoVenta().getStockProducto();
 		boolean Posibilidad= servicios.CantidadStock(Cantidad, Stock);
-		if (Posibilidad==true) {
+		if (Posibilidad==true && Cantidad>0) {
 			servicios.GenerarVenta(venta);
+			long IdProducto = venta.getProductoVenta().getIdProducto();
+			int NewStock = Stock-Cantidad;
+			
+			return "redirect:/venta/";
+		}else {
+			return "ventaError";
 		}
-		return "redirect:/venta/";
+		
 	}
 
 }

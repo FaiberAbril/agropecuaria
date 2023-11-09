@@ -127,66 +127,16 @@
                         <div class="card overflow-hidden rounded-2">
                             <div class="position-relative">
                                 <div class="card-body pt-3 p-4 row">
-                                    <div class="col-6 text-center mt-2">
-                                        <h6 class="fw-semibold fs-4">Generar Venta</h6>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <a th:href="@{/venta/generarVenta}"
-                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
-                                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                            data-bs-title="Add To Cart"><i class="ti ti-clipboard-plus fs-4"></i></a>
+                                    <div class="card w-100">
+                                        <div class="alert alert-danger" role="alert">
+                                            No Stock!
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--Table Start-->
-                    <div class="col-lg-12 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                            <tr>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Producto:</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Cantidad:</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Fecha de la Compra:</h6>
-                                                </th>
-                                                <th class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0">Total a Pagar:</h6>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr th:each="Venta:${listaVentas}">
-                                                <td class="border-bottom-0">
-                                                    <span class="fw-normal"
-                                                        th:text="${Venta.productoVenta.nombreProducto}"></span>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4"
-                                                        th:text="${Venta.Cantidad}"></h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <h6 class="fw-semibold mb-0 fs-4"
-                                                        th:text="${Venta.fechaVenta}"></h6>
-                                                </td>
-                                                <td class="border-bottom-0">
-                                                    <p class="mb-0 fw-normal" th:text="${Venta.PagoTotal}"></p>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

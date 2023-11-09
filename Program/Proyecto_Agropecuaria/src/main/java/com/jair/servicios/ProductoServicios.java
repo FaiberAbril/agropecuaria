@@ -1,6 +1,7 @@
 package com.jair.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,10 @@ public class ProductoServicios {
 		double tolalStock = TotalStock();
 		double totalInventario = tolalStock * totalPrecio;
 		return totalInventario;
+	}
+	
+	public void ActualizarStock(long IdProducto, int NewStock) {
+		int Stock = productoRepository.findById(IdProducto).get().setStockProducto(NewStock);
 	}
 
 }
