@@ -10,10 +10,7 @@ function calcularTotalPagar() {
 document.getElementById('Cantidad').addEventListener('change', calcularTotalPagar);
 document.getElementById('precioProducto').addEventListener('change', calcularTotalPagar);
 
-function ejecutarFuncion() {
-    var funcionesSelect = document.getElementById("funcionesSelect");
-    var funcionSeleccionada = funcionesSelect.options[funcionesSelect.selectedIndex].value;
-}   
+
 
 
 

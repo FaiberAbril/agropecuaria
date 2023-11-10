@@ -143,8 +143,8 @@
                                         <select class="form-select" th:field="*{productoVenta}" name="select" id="select">
                                             <option th:each="Producto:${listaProductos}"
                                                 th:value="${Producto.IdProducto}"
-                                                th:text="${Producto.nombreProducto}"></option>
-                                                <input type="hidden" id="precio" th:value="${Producto.precioProducto}">
+                                                th:text="${Producto.nombreProducto}">
+                                            </option>
                                         </select>
                                         
                                     </div>
