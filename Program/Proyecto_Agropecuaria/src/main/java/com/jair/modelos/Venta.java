@@ -39,8 +39,8 @@ public class Venta {
 	private double PagoTotal;
 	
 	@Column
-	@DateTimeFormat(pattern = "yyyy-MM-dd-HH:mm")
-	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
 	private Date FechaVenta;
 	
 	public Venta() {

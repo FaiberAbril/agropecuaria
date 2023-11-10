@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Agropecuaria Rovirense</title>
   <link rel="shortcut icon" type="image/png" th:href="@{/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg}" />
   <link rel="stylesheet" th:href="@{/css/styles.min.css}" />
@@ -18,8 +18,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="#" class="text-nowrap logo-img">
-            <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" width="120" alt="" height="120" />
+          <a th:href="@{/principal/}" class="text-nowrap logo-img">
+            <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" class="img-fluid" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -33,7 +33,7 @@
               <span class="hide-menu">Principal</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="#" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/principal/}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -43,7 +43,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" th:href="@{/venta/}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-layout-dashboard"></i>
+                  <i class="ti ti-shopping-cart"></i>
                 </span>
                 <span class="hide-menu">Venta</span>
               </a>
@@ -73,9 +73,9 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" th:href="@{/cliente/}" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/profesional/}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-school"></i>
+                  <i class="ti ti-id-badge"></i>
                 </span>
                 <span class="hide-menu">Profesionales</span>
               </a>
@@ -107,7 +107,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  <img th:src="@{/images/profile/user-1.jpg}" alt="" width="35" height="35" class="rounded-circle">
+                  <img th:src="@{/images/profile/user-1.jpg}" alt="" width="35" height="35" class="rounded-circle" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
@@ -203,7 +203,9 @@
                 <!-- Yearly Breakup -->
                 <div class="card overflow-hidden">
                   <div class="card-body d-sm-flex d-block align-items-center justify-content-between mb-9 row">
-                    <h4 class="card-title mb-9 fw-semibold col-sm-6">Total En Inventario:</h4>
+                    <h4 class="card-title mb-9 fw-semibold col-sm-6">
+                      Total En Inventario:
+                    </h4>
                     <h4 th:text="${totalInventario}" class="card-title mb-9 fw-semibold col-sm-6"></h4>
                   </div>
                 </div>
@@ -232,8 +234,11 @@
           </div>
         </div>
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
-              class="pe-1 text-primary text-decoration-underline">AdminMart.com</a></p>
+          <p class="mb-0 fs-4">
+            Design and Developed by
+            <a href="https://adminmart.com/" target="_blank"
+              class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>
+          </p>
         </div>
       </div>
     </div>

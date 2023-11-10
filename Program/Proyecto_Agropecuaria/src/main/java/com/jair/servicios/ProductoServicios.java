@@ -50,9 +50,5 @@ public class ProductoServicios {
 		double totalInventario = tolalStock * totalPrecio;
 		return totalInventario;
 	}
-	
-	public void ActualizarStock(long IdProducto, int NewStock) {
-		int Stock = productoRepository.findById(IdProducto).get().setStockProducto(NewStock);
-	}
 
 }

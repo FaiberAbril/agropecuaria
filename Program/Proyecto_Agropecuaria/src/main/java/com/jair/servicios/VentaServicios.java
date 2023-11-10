@@ -18,6 +18,10 @@ public class VentaServicios {
 		repository.save(venta);
 	}
 	
+	public void ActualizarVenta(Venta venta) {
+		repository.save(venta);
+	}
+	
 	public List<Venta> ListarVentas(){
 		return repository.findAll();
 	}
@@ -31,6 +35,11 @@ public class VentaServicios {
 			return true;
 		}
 		return false;
+	}
+	
+	public double CalcularMonto(int Cantidad, double Precio) {
+		double TotalPago = Cantidad * Precio;
+		return TotalPago;
 	}
 	
 }
