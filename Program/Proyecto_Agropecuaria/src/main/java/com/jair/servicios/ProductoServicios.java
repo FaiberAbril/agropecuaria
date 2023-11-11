@@ -27,8 +27,13 @@ public class ProductoServicios {
 		productoRepository.deleteById(IdProdcuto);
 	}
 
-	public Producto BuscarProducto(Long IdProdcuto) {
-		return productoRepository.findById(IdProdcuto).get();
+	public Producto BuscarProducto(Long IdProducto) {
+		return productoRepository.findById(IdProducto).orElse(null);
+	}
+	
+	public double CapturaPrecio(long IdProducto, Producto pro) {
+		double precioCapturado = productoRepository.getById(IdProducto).getPrecioProducto();
+		return precioCapturado;
 	}
 
 	public List<Producto> ListarProducto() {
