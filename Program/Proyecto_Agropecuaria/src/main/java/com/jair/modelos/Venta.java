@@ -18,41 +18,31 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="ventas")
+@Table(name = "ventas")
 public class Venta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdVenta;
-	
-	@JoinColumn
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Producto productoVenta;
-	
-	@Column
-	private int Cantidad;
-	
+
 	@Column(nullable = true)
 	private String DescuentoVenta;
-	
+
 	@Column
 	private double PagoTotal;
-	
+
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date FechaVenta;
-	
+
 	public Venta() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Venta(long idVenta, Producto productoVenta, int cantidad, String descuentoVenta, double pagoTotal,
-			Date fechaVenta) {
+	public Venta(long idVenta, String descuentoVenta, double pagoTotal, Date fechaVenta) {
 		super();
 		IdVenta = idVenta;
-		this.productoVenta = productoVenta;
-		Cantidad = cantidad;
 		DescuentoVenta = descuentoVenta;
 		PagoTotal = pagoTotal;
 		FechaVenta = fechaVenta;
@@ -64,22 +54,6 @@ public class Venta {
 
 	public void setIdVenta(long idVenta) {
 		IdVenta = idVenta;
-	}
-
-	public Producto getProductoVenta() {
-		return productoVenta;
-	}
-
-	public void setProductoVenta(Producto productoVenta) {
-		this.productoVenta = productoVenta;
-	}
-
-	public int getCantidad() {
-		return Cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		Cantidad = cantidad;
 	}
 
 	public String getDescuentoVenta() {
@@ -104,6 +78,6 @@ public class Venta {
 
 	public void setFechaVenta(Date fechaVenta) {
 		FechaVenta = fechaVenta;
-	}	
-	
+	}
+
 }

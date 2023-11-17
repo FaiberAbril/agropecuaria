@@ -26,6 +26,7 @@ public class VentaServicios {
 		return repository.findAll();
 	}
 	
+	/*
 	public String IdProducto(long IdVenta) {
 		return repository.findById(IdVenta).get().getProductoVenta().getNombreProducto();
 	}
@@ -41,5 +42,8 @@ public class VentaServicios {
 		double TotalPago = Cantidad * Precio;
 		return TotalPago;
 	}
+	*/
+	
+	
 	
 }
