@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jair.modelos.Pedido;
+import com.jair.modelos.Venta;
 import com.jair.repositorios.PedidoRepository;
 
 @Service
@@ -18,20 +19,16 @@ public class PedidoServicios {
 		pedidoRepository.save(pedido);
 	}
 	
+	public List<Pedido> BuscarPedidoVenta(Venta venta) {
+		return pedidoRepository.findByVenta(venta);
+	}
+	
+	public Pedido findPedido(long IdPedido){
+		return (Pedido) pedidoRepository.findById(IdPedido);
+	}
+	
 	public void ActualizarPedido(Pedido pedido) {
 		pedidoRepository.save(pedido);
-	}
-	
-	public void EliminarPedido(long IdPedido) {
-		pedidoRepository.deleteById(IdPedido);
-	}
-	
-	public List<Pedido> ListarPedidos(){
-		return pedidoRepository.findAll();
-	}
-	
-	public Pedido BuscarPedido(long IdPedido) {
-		return pedidoRepository.getById(IdPedido);
 	}
 	
 }

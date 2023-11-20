@@ -25,7 +25,7 @@ public class Pedido {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false)
-	private Producto Prodcuto;
+	private Detalle detalle;
 	
 	@Column(nullable = false)
 	private int Cantidad;
@@ -34,11 +34,11 @@ public class Pedido {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Pedido(long idPedido, Venta venta, Producto prodcuto, int cantidad) {
+	public Pedido(long idPedido, Venta venta, Detalle detalle, int cantidad) {
 		super();
 		IdPedido = idPedido;
 		this.venta = venta;
-		Prodcuto = prodcuto;
+		this.detalle = detalle;
 		Cantidad = cantidad;
 	}
 
@@ -58,12 +58,12 @@ public class Pedido {
 		this.venta = venta;
 	}
 
-	public Producto getProdcuto() {
-		return Prodcuto;
+	public Detalle getDetalle() {
+		return detalle;
 	}
 
-	public void setProdcuto(Producto prodcuto) {
-		Prodcuto = prodcuto;
+	public void setDetalle(Detalle detalle) {
+		this.detalle = detalle;
 	}
 
 	public int getCantidad() {
@@ -73,5 +73,7 @@ public class Pedido {
 	public void setCantidad(int cantidad) {
 		Cantidad = cantidad;
 	}
+
+	
 	
 }
