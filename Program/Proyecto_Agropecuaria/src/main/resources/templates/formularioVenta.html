@@ -209,8 +209,7 @@
                                                                         <button type="button" class="btn btn-primary"
                                                                             data-bs-toggle="modal"
                                                                             data-bs-target="#exampleModal">
-                                                                            <a href="@{/pedido/formPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
-                                                                                Agregar al Carrito</a>
+                                                                                Agregar al Carrito
                                                                         </button>
 
                                                                         <!-- Modal -->
@@ -234,7 +233,7 @@
                                                                                     <div class="modal-body">
                                                                                         <div>
                                                                                             <form
-                                                                                                th:action="@{/pedido/formPedido}"
+                                                                                                th:action="@{/pedido/formPedido/{IdProducto}(IdProducto = Producto:${Producto.IdProducto})}"
                                                                                                 method="post"
                                                                                                 th:object="${ObjPedido}">
                                                                                                 <div>
