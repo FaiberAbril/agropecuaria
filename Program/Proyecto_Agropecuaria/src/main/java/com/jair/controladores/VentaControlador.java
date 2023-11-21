@@ -13,6 +13,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jair.modelos.Pedido;
 import com.jair.modelos.Producto;
 import com.jair.modelos.Venta;
+import com.jair.servicios.DetalleServicios;
+import com.jair.servicios.PedidoServicios;
 import com.jair.servicios.ProductoServicios;
 import com.jair.servicios.VentaServicios;
 
@@ -27,10 +29,16 @@ public class VentaControlador {
 
 	@Autowired
 	private ProductoServicios productoServicios;
+	
+	@Autowired
+	private PedidoServicios pedidoServicios;
 
+	@Autowired
+	private DetalleServicios detalleServicios;
+	
 	@GetMapping("/")
 	public String paginaVentas(Model model) {
-		model.addAttribute("listaVentas", servicios.ListarVentas());
+		model.addAttribute("listaDetalles", detalleServicios.ListaDetalles());
 		return "ventas";
 	}
 

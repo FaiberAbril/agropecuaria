@@ -170,18 +170,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr th:each="Venta:${listaVentas}">
+                      <tr th:each="Detalle:${listaDetalles}">
                         <td class="border-bottom-0">
-                          <span class="fw-normal" th:text="${Venta.productoVenta.nombreProducto}"></span>
+                          <span class="fw-normal" th:text="${Detalle.producto.nombreProducto}"></span>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Venta.Cantidad}"></h6>
+                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Detalle.pedido.Cantidad}"></h6>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Venta.fechaVenta}"></h6>
+                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Detalle.pedido.venta.FechaVenta}"></h6>
                         </td>
                         <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal" th:text="${Venta.PagoTotal}"></p>
+                          <p class="mb-0 fw-normal" th:text="${Detalle.pedido.venta.PagoTotal}"></p>
                         </td>
                       </tr>
                     </tbody>

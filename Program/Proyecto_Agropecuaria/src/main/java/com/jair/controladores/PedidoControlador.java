@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.jair.modelos.Detalle;
 import com.jair.modelos.Pedido;
 import com.jair.modelos.Producto;
+import com.jair.modelos.Venta;
 import com.jair.servicios.PedidoServicios;
 import com.jair.servicios.ProductoServicios;
+import com.jair.servicios.VentaServicios;
 
 import jakarta.websocket.server.PathParam;
 
@@ -27,13 +29,18 @@ public class PedidoControlador {
 	@Autowired
 	private ProductoServicios productoServicios;
 	
+	private VentaServicios ventaServicios;
+	
 	@GetMapping("/formPedido/{IdProducto}")
-	public String formPedido(Model model, @PathVariable("IdProducto") long producto){
-		model.addAttribute("ObjPedido", new Pedido());
-		model.addAttribute("ObjDetalle", new Detalle());
+	public String formPedido(Model model, @PathVariable("IdProducto") long producto, @ModelAttribute("ObjPedido") Pedido pedido, @ModelAttribute("ObjVenta") Venta venta){
 		Producto p = productoServicios.BuscarProducto(producto);
+		ventaServicios.GenerarVenta(venta);
+		pedido.setVenta(venta);
+		pedidoServicios.CrearPedido(pedido);
 		model.addAttribute("ObjProducto", p);
-		
+		Detalle detalle = new Detalle();
+		detalle.setPedido(pedido);
+		detalle.setProducto(p);
 		return "formPedido";
 	}
 	

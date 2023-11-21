@@ -31,4 +31,8 @@ public class DetalleServicios {
 		return detalleRepository.findByPedido(pedido);
 	}
 	
+	public List<Detalle> ListaDetalles(){
+		return detalleRepository.findAll();
+	}
+	
 }
