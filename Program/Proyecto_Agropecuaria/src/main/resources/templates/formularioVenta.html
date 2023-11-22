@@ -205,65 +205,13 @@
                                                                 </td>
                                                                 <td class="border-bottom-0">
                                                                     <div class="d-flex align-items-center gap-2">
-                                                                        <!-- Button trigger modal -->
-                                                                        <button type="button" class="btn btn-primary"
-                                                                            data-bs-toggle="modal"
-                                                                            data-bs-target="#exampleModal">
-                                                                            <a th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${IdProducto})}">
-                                                                                Agregar al Carrito
-                                                                            </a>    
-                                                                        </button>
-
-                                                                        <!-- Modal -->
-                                                                        <div class="modal fade" id="exampleModal"
-                                                                            tabindex="-1"
-                                                                            aria-labelledby="exampleModalLabel"
-                                                                            aria-hidden="true">
-                                                                            <div class="modal-dialog">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title"
-                                                                                            id="exampleModalLabel">
-                                                                                            Agregar Producto al Pedido
-                                                                                        </h5>
-                                                                                        <button type="button"
-                                                                                            class="btn-close"
-                                                                                            data-bs-dismiss="modal"
-                                                                                            aria-label="Close">
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <div>
-                                                                                            <form
-                                                                                                th:action="@{/pedido/guardarPedido}"
-                                                                                                method="post"
-                                                                                                th:object="${ObjPedido}">
-                                                                                                <div>
-                                                                                                    <label
-                                                                                                        class="form-label"
-                                                                                                        for="Cantidad">Cantidad:
-                                                                                                    </label>
-                                                                                                    <input type="number"
-                                                                                                        class="form-control"
-                                                                                                        th:field="*{Cantidad}">
-                                                                                                </div>
-                                                                                            </form>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button"
-                                                                                            class="btn btn-secondary"
-                                                                                            data-bs-dismiss="modal">
-                                                                                            Cancelar
-                                                                                        </button>
-                                                                                        <button type="submit"
-                                                                                            class="btn btn-primary">
-                                                                                            Comprar
-                                                                                        </button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                                            <a th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                                <button type="button"
+                                                                                    class="bg-primary btn-primary btn-outline-primary">Agregar Al Carrito</button>
+                                                                            </a>
+                                                                        </span>
+                                                                      </button>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -279,7 +227,7 @@
                                     </div-->
                                     <div>
                                         <label class="form-label" for="fechaRegistroProdcuto">Fecha:</label>
-                                        <input class="form-control" type="datetime-local" th:field="*{FechaVenta}" />
+                                        <input class="form-control" type="datetime-local" name="FechaVenta" />
                                     </div>
                                     <div>
                                         <label class="form-label" for="PagoTotal">Total a Pagar:</label>

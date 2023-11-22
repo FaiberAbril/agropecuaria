@@ -46,18 +46,10 @@ public class VentaControlador {
 	}
 
 	@GetMapping("/formVenta")
-	public String formGenerarVenta(Model model, RedirectAttributes product) {
+	public String formGenerarVenta(Model model) {
 		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		return "formularioVenta";
 	}
-	
-    @GetMapping("/getProdcuto")
-    public String getPrecio(@RequestParam(value = "id") Long id, RedirectAttributes Valorprecio) {
-        Producto prod = productoServicios.BuscarProducto(id);
-        double precio = prod.getPrecioProducto();
-        Valorprecio.addFlashAttribute("PrecioCap", precio);
-        return "formularioVenta" + Valorprecio;
-    }
 
 	@PostMapping("/generarVenta")
 	public String guardarVenta(@ModelAttribute("ObjVenta") Venta venta) {

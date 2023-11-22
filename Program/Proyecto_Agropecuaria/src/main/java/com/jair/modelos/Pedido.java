@@ -23,7 +23,7 @@ public class Pedido {
 	@JoinColumn(nullable = true)
 	private Venta venta;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private int Cantidad;
 	
 	public Pedido() {

@@ -1,5 +1,8 @@
 package com.jair.controladores;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jair.modelos.Detalle;
 import com.jair.modelos.Pedido;
@@ -40,15 +44,15 @@ public class PedidoControlador {
 	@GetMapping("/GenerarPedido/{IdProducto}")
 	public String formPedido(Model model, @PathVariable("IdProducto") long producto){
 		Producto p = productoServicios.BuscarProducto(producto);
+		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		model.addAttribute("Producto", p);
 		model.addAttribute("ObjPedido", new Pedido());
-		model.addAttribute("ObjVenta", new Venta());
 		model.addAttribute("listaDetalles", detalleServicios.ListarDetalles());
 		return "formPedido";
 	}
 	
 	@PostMapping("/guardarPedido")
-	public String GuardarPedido(@ModelAttribute("ObjPedido") Pedido pedido, @ModelAttribute("ObjVenta") Venta venta, @ModelAttribute("Producto") Producto p) {
+	public String GuardarPedido(@ModelAttribute("ObjPedido") Pedido pedido, @ModelAttribute("p") Producto p) {
 		
 		//Condicion de Validación para Venta Pedido y Detalle
 				int Cantidad = pedido.getCantidad();
@@ -56,7 +60,19 @@ public class PedidoControlador {
 				
 				if (Cantidad > 0 && Cantidad < stockPro) {
 					
+					//Calculo Total a Pagar
+					double Precio = p.getPrecioProducto();
+					double TPagar= Precio * Cantidad;
+					Venta venta = new Venta();
+					venta.setPagoTotal(TPagar);
 					ventaServicios.GenerarVenta(venta);
+					
+					//Actualizacion de Stock
+					p.setStockProducto(stockPro - Cantidad);
+					productoServicios.ActualizarProducto(p);
+					
+					//Date fecha = new Date().getTime();
+					//venta.setFechaVenta(fecha);
 					pedido.setVenta(venta);
 					pedidoServicios.CrearPedido(pedido);
 					Detalle detalle = new Detalle();
@@ -67,7 +83,7 @@ public class PedidoControlador {
 					return "redirect:/pedido/formPedido";
 				}
 		
-		return "";
+		return "redirect:/pedido/formPedido";
 	}
 	
 }

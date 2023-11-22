@@ -142,14 +142,15 @@
                         <div class="card-body p-4">
                             <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
                             <div class="card-body">
-                                <form th:action="@{/venta/generarVenta}" method="post" th:object="${ObjVenta}">
+                                <form th:action="@{/pedido/guardarPedido}" method="post" th:object="${ObjPedido}">
                                     <div class="col-lg-12 d-flex align-items-stretch">
                                         <div class="card w-100">
                                             <div class="card-body p-4">
                                                 <h5 class="card-title fw-semibold mb-4">Productos</h5>
                                                 <div class="table-responsive">
                                                     <div>
-                                                        <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
+                                                        <table id="myDataTable"
+                                                            class="table text-nowrap mb-0 align-middle">
                                                             <thead class="text-dark fs-4">
                                                                 <tr>
                                                                     <th class="border-bottom-0">
@@ -206,107 +207,17 @@
                                                                     </td>
                                                                     <td class="border-bottom-0">
                                                                         <div class="d-flex align-items-center gap-2">
-                                                                            <!-- Button trigger modal -->
-                                                                            <button type="button" class="btn btn-primary"
-                                                                                data-bs-toggle="modal"
-                                                                                data-bs-target="#exampleModal">
-                                                                                <a th:href="@{/pedido/formPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
-                                                                                    Agregar al Carrito
+                                                                            <span
+                                                                                class="badge bg-primary rounded-3 fw-semibold">
+                                                                                <a
+                                                                                    th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                                    <button type="button"
+                                                                                        class="bg-primary btn-primary btn-outline-primary">Agregar
+                                                                                        Al Carrito</button>
                                                                                 </a>
+                                                                            </span>
                                                                             </button>
-                                                                            <!-- Modal -->
-                                                                            <div class="modal fade" id="exampleModal"
-                                                                                tabindex="-1"
-                                                                                aria-labelledby="exampleModalLabel"
-                                                                                aria-hidden="true">
-                                                                                <div class="modal-dialog">
-                                                                                    <div class="modal-content">
-                                                                                        <div class="modal-header">
-                                                                                            <h5 class="modal-title"
-                                                                                                id="exampleModalLabel">
-                                                                                                Agregar Producto al Pedido
-                                                                                            </h5>
-                                                                                            <button type="button"
-                                                                                                class="btn-close"
-                                                                                                data-bs-dismiss="modal"
-                                                                                                aria-label="Close">
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <div class="modal-body">
-                                                                                            <div>
-                                                                                                <form
-                                                                                                    th:action=""
-                                                                                                    method="post"
-                                                                                                    th:object="${ObjPedido}">
-                                                                                                    <div>
-                                                                                                        <label
-                                                                                                            class="form-label"
-                                                                                                            for="Cantidad">Cantidad:
-                                                                                                        </label>
-                                                                                                        <input type="number"
-                                                                                                            class="form-control"
-                                                                                                            th:field="*{Cantidad}">
-                                                                                                    </div>
-                                                                                                </form>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button"
-                                                                                                class="btn btn-secondary"
-                                                                                                data-bs-dismiss="modal">
-                                                                                                Cancelar
-                                                                                            </button>
-                                                                                            <button type="submit"
-                                                                                                class="btn btn-primary">
-                                                                                                Comprar
-                                                                                            </button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <div>
-                                                        <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">
-                                                                            Producto
-                                                                        </h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">
-                                                                            Precio
-                                                                        </h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">
-                                                                            Cantidad
-                                                                        </h6>
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr th:each="Detalle:${listaDetalles}">
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Detalle.producto.nombreProducto}">
-                                                                        </h6>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Detalle.producto.stockProducto}">
-                                                                        </h6>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Detalle.pedido.Cantidad}">
-                                                                        </h6>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
@@ -316,18 +227,73 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <label class="form-label" for="fechaRegistroProdcuto">Fecha:</label>
-                                        <input class="form-control" type="datetime-local" th:field="*{FechaVenta}" />
+                                    <div class="col-lg-12 d-flex align-items-stretch">
+                                        <div class="card w-100">
+                                            <div class="card-body p-4">
+                                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
+                                                <div class="table-responsive">
+                                                    <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0">
+                                                                        Producto
+                                                                    </h6>
+                                                                </th>
+                                                                <th class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0">
+                                                                        Precio
+                                                                    </h6>
+                                                                </th>
+                                                                <th class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0">
+                                                                        Cantidad
+                                                                    </h6>
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr th:each="Detalle:${listaDetalles}">
+                                                                <td class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                                        th:text="${Detalle.producto.nombreProducto}">
+                                                                    </h6>
+                                                                </td>
+                                                                <td class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                                        th:text="${Detalle.producto.stockProducto}">
+                                                                    </h6>
+                                                                </td>
+                                                                <td class="border-bottom-0">
+                                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                                        th:text="${Detalle.pedido.Cantidad}">
+                                                                    </h6>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <label class="form-label" for="PagoTotal">Total a Pagar:</label>
-                                        <input class="form-control" type="text" aria-label="Disabled input example"
-                                            id="ValorPagar" disabled readonly />
-
-                                        <input class="form-control" type="text" aria-label="" id="ValorPagar" disabled
-                                            readonly>
-
+                                    <div class="modal" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <input type="number" name="Cantidad" id="Cantidad">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mt-4">
                                         <button class="btn btn-primary" type="submit">
