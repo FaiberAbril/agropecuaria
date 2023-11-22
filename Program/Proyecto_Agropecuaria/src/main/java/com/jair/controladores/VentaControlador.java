@@ -47,8 +47,6 @@ public class VentaControlador {
 
 	@GetMapping("/formVenta")
 	public String formGenerarVenta(Model model, RedirectAttributes product) {
-		model.addAttribute("ObjVenta", new Venta());
-		model.addAttribute("ObjPedido", new Pedido());
 		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		return "formularioVenta";
 	}

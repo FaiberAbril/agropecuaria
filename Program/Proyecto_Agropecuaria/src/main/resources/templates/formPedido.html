@@ -276,11 +276,40 @@
                                                                 <tr>
                                                                     <th class="border-bottom-0">
                                                                         <h6 class="fw-semibold mb-0">
-    
+                                                                            Producto
+                                                                        </h6>
+                                                                    </th>
+                                                                    <th class="border-bottom-0">
+                                                                        <h6 class="fw-semibold mb-0">
+                                                                            Precio
+                                                                        </h6>
+                                                                    </th>
+                                                                    <th class="border-bottom-0">
+                                                                        <h6 class="fw-semibold mb-0">
+                                                                            Cantidad
                                                                         </h6>
                                                                     </th>
                                                                 </tr>
                                                             </thead>
+                                                            <tbody>
+                                                                <tr th:each="Detalle:${listaDetalles}">
+                                                                    <td class="border-bottom-0">
+                                                                        <h6 class="fw-semibold mb-0 fs-4"
+                                                                            th:text="${Detalle.producto.nombreProducto}">
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td class="border-bottom-0">
+                                                                        <h6 class="fw-semibold mb-0 fs-4"
+                                                                            th:text="${Detalle.producto.stockProducto}">
+                                                                        </h6>
+                                                                    </td>
+                                                                    <td class="border-bottom-0">
+                                                                        <h6 class="fw-semibold mb-0 fs-4"
+                                                                            th:text="${Detalle.pedido.Cantidad}">
+                                                                        </h6>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
                                                         </table>
                                                     </div>
                                                 </div>
