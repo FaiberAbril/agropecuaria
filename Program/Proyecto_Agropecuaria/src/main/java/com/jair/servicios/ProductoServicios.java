@@ -1,7 +1,6 @@
 package com.jair.servicios;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,9 +30,9 @@ public class ProductoServicios {
 		return productoRepository.findById(IdProducto).orElse(null);
 	}
 	
-	public double CapturaPrecio(long IdProducto, Producto pro) {
-		double precioCapturado = productoRepository.getById(IdProducto).getPrecioProducto();
-		return precioCapturado;
+	public double Precioprod (Producto pro) {
+		Producto pr = productoRepository.getById(pro.getIdProducto());
+		return pr.getPrecioProducto();
 	}
 
 	public List<Producto> ListarProducto() {
