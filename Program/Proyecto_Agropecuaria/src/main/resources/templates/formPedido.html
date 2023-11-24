@@ -143,6 +143,50 @@
                             <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
                             <div class="card-body">
                                 <form th:action="@{/pedido/guardarPedido}" method="post" th:object="${ObjPedido}">
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                        Agregar Producto al Pedido
+                                                    </h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close">
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div>
+                                                        <form th:action="@{/pedido/guardarPedido}" method="post"
+                                                            th:object="${ObjPedido}">
+                                                            <div>
+                                                                <input type="hidden" name="IdProducto" id="IdProducto">
+                                                                <label class="form-label" for="Cantidad">Cantidad:
+                                                                </label>
+                                                                <input type="number" class="form-control"
+                                                                    name="Cantidad">
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    Cancelar
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary">
+                                                                    <a
+                                                                        th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${IdProducto})}">
+                                                                        Agregar al Carrito
+                                                                    </a>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--End Modal-->
+                                    </div>
                                     <div class="col-lg-12 d-flex align-items-stretch">
                                         <div class="card w-100">
                                             <div class="card-body p-4">
@@ -276,57 +320,34 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal" tabindex="-1">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title">Modal title</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <input type="number" name="Cantidad" id="Cantidad">
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Close</button>
-                                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-4">
-                                        <button class="btn btn-primary" type="submit">
-                                            Guardar
-                                        </button>
-                                    </div>
+                                    <!--Form End-->
                                 </form>
                             </div>
                         </div>
+                        <!--Body End-->
                     </div>
+                    <!--  Main wrapper End -->
                 </div>
-                <!--Form End-->
-            </div>
-            <!--Body End-->
-        </div>
-        <!--  Main wrapper End -->
-    </div>
-    <!--Body Wrapper End-->
+                <!--Body Wrapper End-->
 
-    <script>
-        $(document).ready(function () {
-            $("#myDataTable").dataTable();
-        });
-    </script>
-    <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
-    <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/js/sidebarmenu.js}"></script>
-    <script th:src="@{/js/app.min.js}"></script>
-    <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
-    <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
-    <script th:src="@{/js/dashboard.js}"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+                <script>
+                    $(document).ready(function () {
+                        $("#myDataTable").dataTable();
+                    });
+                    document.addEventListener("load", function (e) {
+                        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+                        myModal.show();
+                    });
+                </script>
+                <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
+                <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+                <script th:src="@{/js/sidebarmenu.js}"></script>
+                <script th:src="@{/js/app.min.js}"></script>
+                <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
+                <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
+                <script th:src="@{/js/dashboard.js}"></script>
+                <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+                    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 </html>

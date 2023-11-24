@@ -42,12 +42,14 @@ public class PedidoControlador {
 	private DetalleServicios detalleServicios;
 	
 	@GetMapping("/GenerarPedido/{IdProducto}")
-	public String formPedido(Model model, @PathVariable("IdProducto") long producto){
+	public String formPedido(Model model, @PathVariable("IdProducto") long producto, RedirectAttributes flash){
 		Producto p = productoServicios.BuscarProducto(producto);
 		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		model.addAttribute("Producto", p);
 		model.addAttribute("ObjPedido", new Pedido());
 		model.addAttribute("listaDetalles", detalleServicios.ListarDetalles());
+		Venta venta = new Venta();
+		flash.addFlashAttribute(venta);
 		return "formPedido";
 	}
 	
