@@ -142,15 +142,19 @@
                         <div class="card-body p-4">
                             <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
                             <div class="card-body">
-                                <form th:action="@{/pedido/guardarPedido}" method="post" th:object="${ObjPedido}">
-
+                                <c:if test="${not empty alerta}">
+                                    <div class="alert alert-info">
+                                        ${alerta}
+                                    </div>
+                                </c:if>
+                                <form>
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="miModal" tabindex="-1"
+                                        aria-labelledby="miModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                    <h5 class="modal-title" id="miModalLabel">
                                                         Agregar Producto al Pedido
                                                     </h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -158,196 +162,208 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div>
-                                                        <form th:action="@{/pedido/guardarPedido}" method="post"
-                                                            th:object="${ObjPedido}">
-                                                            <div>
-                                                                <input type="hidden" name="IdProducto" id="IdProducto">
-                                                                <label class="form-label" for="Cantidad">Cantidad:
-                                                                </label>
-                                                                <input type="number" class="form-control"
-                                                                    name="Cantidad">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">
-                                                                    Cancelar
-                                                                </button>
-                                                                <button type="submit" class="btn btn-primary">
-                                                                    <a
-                                                                        th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${IdProducto})}">
-                                                                        Agregar al Carrito
-                                                                    </a>
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                    <form id="cantidadForm">
+                                                        <div class="form-group">
+                                                            <label for="cantidad-input"
+                                                                class="col-form-label">Cantidad:</label>
+                                                            <input type="number" class="form-control"
+                                                                id="cantidad-input" value="1" min="1">
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!--End Modal-->
-                                    </div>
-                                    <div class="col-lg-12 d-flex align-items-stretch">
-                                        <div class="card w-100">
-                                            <div class="card-body p-4">
-                                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
-                                                <div class="table-responsive">
-                                                    <div>
-                                                        <table id="myDataTable"
-                                                            class="table text-nowrap mb-0 align-middle">
-                                                            <thead class="text-dark fs-4">
-                                                                <tr>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">Producto</h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">Precio</h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">Categoria</h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">Stock</h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">
-                                                                            Unidad de Medida
-                                                                        </h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0">
-                                                                            Fecha de Registro
-                                                                        </h6>
-                                                                    </th>
-                                                                    <th class="border-bottom-0"></th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr th:each="Producto:${listaProductos}">
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Producto.nombreProducto}"></h6>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Producto.precioProducto}"></h6>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <span class="fw-normal"
-                                                                            th:text="${Producto.categoriaProdProducto.Categoria}"></span>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <p class="mb-0 fw-normal"
-                                                                            th:text="${Producto.stockProducto}"></p>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <span class="fw-normal"
-                                                                            th:text="${Producto.unidadMedidaProducto.SimboloUnidadMedida}"></span>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <h6 class="fw-semibold mb-0 fs-4"
-                                                                            th:text="${Producto.fechaRegistroProdcuto}">
-                                                                        </h6>
-                                                                    </td>
-                                                                    <td class="border-bottom-0">
-                                                                        <div class="d-flex align-items-center gap-2">
-                                                                            <span
-                                                                                class="badge bg-primary rounded-3 fw-semibold">
-                                                                                <a
-                                                                                    th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
-                                                                                    <button type="button"
-                                                                                        class="bg-primary btn-primary btn-outline-primary">Agregar
-                                                                                        Al Carrito</button>
-                                                                                </a>
-                                                                            </span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        id="enviarCantidad">Enviar Cantidad</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 d-flex align-items-stretch">
-                                        <div class="card w-100">
-                                            <div class="card-body p-4">
-                                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
-                                                <div class="table-responsive">
-                                                    <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0">
-                                                                        Producto
-                                                                    </h6>
-                                                                </th>
-                                                                <th class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0">
-                                                                        Precio
-                                                                    </h6>
-                                                                </th>
-                                                                <th class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0">
-                                                                        Cantidad
-                                                                    </h6>
-                                                                </th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr th:each="Detalle:${listaDetalles}">
-                                                                <td class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0 fs-4"
-                                                                        th:text="${Detalle.producto.nombreProducto}">
-                                                                    </h6>
-                                                                </td>
-                                                                <td class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0 fs-4"
-                                                                        th:text="${Detalle.producto.stockProducto}">
-                                                                    </h6>
-                                                                </td>
-                                                                <td class="border-bottom-0">
-                                                                    <h6 class="fw-semibold mb-0 fs-4"
-                                                                        th:text="${Detalle.pedido.Cantidad}">
-                                                                    </h6>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--Form End-->
                                 </form>
                             </div>
                         </div>
-                        <!--Body End-->
                     </div>
-                    <!--  Main wrapper End -->
                 </div>
-                <!--Body Wrapper End-->
+                <!--End Modal-->
+            </div>
+            <div class="col-lg-12 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-semibold mb-4">Productos</h5>
+                        <div class="table-responsive">
+                            <div>
+                                <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
+                                    <thead class="text-dark fs-4">
+                                        <tr>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Producto</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Precio</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Categoria</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">Stock</h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">
+                                                    Unidad de Medida
+                                                </h6>
+                                            </th>
+                                            <th class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0">
+                                                    Fecha de Registro
+                                                </h6>
+                                            </th>
+                                            <th class="border-bottom-0"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="Producto:${listaProductos}">
+                                            <td class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0 fs-4" th:text="${Producto.nombreProducto}">
+                                                </h6>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0 fs-4" th:text="${Producto.precioProducto}">
+                                                </h6>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <span class="fw-normal"
+                                                    th:text="${Producto.categoriaProdProducto.Categoria}"></span>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <p class="mb-0 fw-normal" th:text="${Producto.stockProducto}"></p>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <span class="fw-normal"
+                                                    th:text="${Producto.unidadMedidaProducto.SimboloUnidadMedida}"></span>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <h6 class="fw-semibold mb-0 fs-4"
+                                                    th:text="${Producto.fechaRegistroProdcuto}">
+                                                </h6>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span class="badge bg-primary rounded-3 fw-semibold">
+                                                        <a
+                                                            th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                            <button type="button"
+                                                                class="bg-primary btn-primary btn-outline-primary">Agregar
+                                                                Al Carrito</button>
+                                                        </a>
+                                                    </span>
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 d-flex align-items-stretch">
+                <div class="card w-100">
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-semibold mb-4">Productos</h5>
+                        <div class="table-responsive">
+                            <table id="myDataTable" class="table text-nowrap mb-0 align-middle">
+                                <thead>
+                                    <tr>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">
+                                                Producto
+                                            </h6>
+                                        </th>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">
+                                                Precio
+                                            </h6>
+                                        </th>
+                                        <th class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0">
+                                                Cantidad
+                                            </h6>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="Detalle:${listaDetalles}">
+                                        <td class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0 fs-4"
+                                                th:text="${Detalle.producto.nombreProducto}">
+                                            </h6>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0 fs-4"
+                                                th:text="${Detalle.producto.stockProducto}">
+                                            </h6>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <h6 class="fw-semibold mb-0 fs-4" th:text="${Detalle.pedido.Cantidad}">
+                                            </h6>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Form End-->
+            </form>
+        </div>
+    </div>
+    <!--Body End-->
+    </div>
+    <!--  Main wrapper End -->
+    </div>
+    <!--Body Wrapper End-->
 
-                <script>
-                    $(document).ready(function () {
-                        $("#myDataTable").dataTable();
-                    });
-                    document.addEventListener("load", function (e) {
-                        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
-                        myModal.show();
-                    });
-                </script>
-                <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
-                <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
-                <script th:src="@{/js/sidebarmenu.js}"></script>
-                <script th:src="@{/js/app.min.js}"></script>
-                <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
-                <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
-                <script th:src="@{/js/dashboard.js}"></script>
-                <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-                    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myDataTable").dataTable();
+        });
+    </script>
+    <script>
+        // Obtener referencias a los elementos
+        var miModal = new bootstrap.Modal(document.getElementById('miModal'));
+
+        // Agregar un evento al botón para abrir la ventana modal
+
+        window.addEventListener('load', function () {
+            miModal.show();
+        });
+        $('#enviarCantidad').on('click', function () {
+            var cantidad = $('#cantidad-input').val();
+            $.ajax({
+                url: '/GenerarPedido/{IdProducto}',
+                type: 'GET',
+                data: { Cantidad: cantidad },
+                success: function (data) {
+                    $('#miModal').modal('hide');
+                },
+                error: function (xhr, status, error) {
+                    console.error('Submission error:', error);
+                }
+            });
+        });
+    </script>
+    <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/sidebarmenu.js}"></script>
+    <script th:src="@{/js/app.min.js}"></script>
+    <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
+    <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
+    <script th:src="@{/js/dashboard.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 </html>

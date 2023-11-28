@@ -19,11 +19,11 @@ public class Detalle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdDetalle;
 	
-	@JoinColumn(nullable = false)
+	@JoinColumn(nullable = true)
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Pedido pedido;
 	
-	@JoinColumn(nullable = false)
+	@JoinColumn(nullable = true)
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private Producto producto;
 	

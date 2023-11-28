@@ -7,12 +7,10 @@
     <title>Agropecuaria Rovirense</title>
     <link rel="shortcut icon" type="image/png" th:href="@{/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg}" />
     <link rel="stylesheet" th:href="@{/css/styles.min.css}" />
-    <script th:src="@{/js/CalculoPago1.js}"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-        <script th:src="@{/js/CapturaProducto.js}"></script>
-        
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -205,13 +203,15 @@
                                                                 </td>
                                                                 <td class="border-bottom-0">
                                                                     <div class="d-flex align-items-center gap-2">
-                                                                        <span class="badge bg-primary rounded-3 fw-semibold">
-                                                                            <a th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                        <span
+                                                                            class="badge bg-primary rounded-3 fw-semibold">
+                                                                            <a
+                                                                                th:href="@{/pedido/GenerarPedido/{IdProducto}(IdProducto=${Producto.IdProducto})}">
                                                                                 <button type="button"
-                                                                                    class="bg-primary btn-primary btn-outline-primary">Agregar Al Carrito</button>
+                                                                                    class="bg-primary btn-primary btn-outline-primary">Agregar
+                                                                                    Al Carrito</button>
                                                                             </a>
                                                                         </span>
-                                                                      </button>
                                                                     </div>
                                                                 </td>
                                                             </tr>
@@ -225,19 +225,20 @@
                                         <label class="form-label" for="descripcionProducto">Descuento en la Venta:</label>
                                         <input class="form-control" type="text" th:field="*{DescuentoVenta}">
                                     </div-->
-                                    <div>
+                                    <!--div>
                                         <label class="form-label" for="fechaRegistroProdcuto">Fecha:</label>
                                         <input class="form-control" type="datetime-local" name="FechaVenta" />
                                     </div>
                                     <div>
                                         <label class="form-label" for="PagoTotal">Total a Pagar:</label>
-                                        <input class="form-control" type="text" aria-label="Disabled input example" id="ValorPagar" disabled readonly>
+                                        <input class="form-control" type="text" aria-label="Disabled input example"
+                                            id="ValorPagar" disabled readonly>
                                     </div>
                                     <div class="mt-4">
                                         <button class="btn btn-primary" type="submit">
                                             Guardar
                                         </button>
-                                    </div>
+                                    </div-->
                                 </form>
                             </div>
                         </div>
