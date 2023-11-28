@@ -1,5 +1,6 @@
 package com.jair.modelos;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,38 +26,30 @@ public class Venta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdVenta;
 	
-	@JoinColumn
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Producto productoVenta;
-	
-	@Column
-	private int Cantidad;
-	
 	@Column(nullable = true)
 	private String DescuentoVenta;
 	
 	@Column
-	private double PagoTotal;
-	
-	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	private Date FechaVenta;
+	private LocalDate FechaVenta;
 	
 	public Venta() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Venta(long idVenta, Producto productoVenta, int cantidad, String descuentoVenta, double pagoTotal,
-			Date fechaVenta) {
+	public Venta(long idVenta, String descuentoVenta, LocalDate fechaVenta) {
 		super();
 		IdVenta = idVenta;
-		this.productoVenta = productoVenta;
-		Cantidad = cantidad;
 		DescuentoVenta = descuentoVenta;
-		PagoTotal = pagoTotal;
 		FechaVenta = fechaVenta;
 	}
+	
+	
+	public Venta(LocalDate fechaVenta) {
+		FechaVenta = fechaVenta;
+	}
+	
 
 	public long getIdVenta() {
 		return IdVenta;
@@ -64,22 +57,6 @@ public class Venta {
 
 	public void setIdVenta(long idVenta) {
 		IdVenta = idVenta;
-	}
-
-	public Producto getProductoVenta() {
-		return productoVenta;
-	}
-
-	public void setProductoVenta(Producto productoVenta) {
-		this.productoVenta = productoVenta;
-	}
-
-	public int getCantidad() {
-		return Cantidad;
-	}
-
-	public void setCantidad(int cantidad) {
-		Cantidad = cantidad;
 	}
 
 	public String getDescuentoVenta() {
@@ -90,20 +67,12 @@ public class Venta {
 		DescuentoVenta = descuentoVenta;
 	}
 
-	public double getPagoTotal() {
-		return PagoTotal;
-	}
-
-	public void setPagoTotal(double pagoTotal) {
-		PagoTotal = pagoTotal;
-	}
-
-	public Date getFechaVenta() {
+	public LocalDate getFechaVenta() {
 		return FechaVenta;
 	}
 
-	public void setFechaVenta(Date fechaVenta) {
+	public void setFechaVenta(LocalDate fechaVenta) {
 		FechaVenta = fechaVenta;
-	}	
+	}
 	
 }

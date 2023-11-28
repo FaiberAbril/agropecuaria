@@ -26,20 +26,4 @@ public class VentaServicios {
 		return repository.findAll();
 	}
 	
-	public String IdProducto(long IdVenta) {
-		return repository.findById(IdVenta).get().getProductoVenta().getNombreProducto();
-	}
-	
-	public boolean CantidadStock(int Cantidad, int Stock) {
-		if (Cantidad<Stock) {
-			return true;
-		}
-		return false;
-	}
-	
-	public double CalcularMonto(int Cantidad, double Precio) {
-		double TotalPago = Cantidad * Precio;
-		return TotalPago;
-	}
-	
 }

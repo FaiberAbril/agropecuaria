@@ -43,12 +43,12 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" th:href="@{/venta/}" aria-expanded="false">
-                              <span>
-                                <i class="ti ti-shopping-cart"></i>
-                              </span>
-                              <span class="hide-menu">Venta</span>
+                                <span>
+                                    <i class="ti ti-shopping-cart"></i>
+                                </span>
+                                <span class="hide-menu">Venta</span>
                             </a>
-                          </li>
+                        </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                             <span class="hide-menu">Inventario</span>
@@ -131,48 +131,164 @@
             <!--  Header End -->
             <!--Body Start-->
             <div class="container-fluid">
-                <!--Form Start-->
                 <div class="col-lg-12 d-flex align-items-stretch">
                     <div class="card w-100">
                         <div class="card-body p-4">
                             <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
                             <div class="card-body">
-                                <form th:action="@{/venta/generarVenta}" method="post" th:object="${ObjVenta}">
-                                    <div>
-                                        <label class="form-label" for="productoVenta">Producto:</label>
-                                        <select class="form-select" th:field="*{productoVenta}" name="select" id="select">
-                                            <option th:each="Producto:${listaProductos}"
-                                                th:value="${Producto.IdProducto}"
-                                                th:text="${Producto.nombreProducto}">
-                                            </option>
-                                        </select>
-                                        
-                                    </div>
-                                    <div>
-                                        <label for="nombreProducto" class="form-label">Cantidad:</label>
-                                        <input type="number" class="form-control" th:field="*{Cantidad}" id="Cantidad">
-                                    </div>
-                                    <!--div>
-                                        <label class="form-label" for="descripcionProducto">Descuento en la Venta:</label>
-                                        <input class="form-control" type="text" th:field="*{DescuentoVenta}">
-                                    </div-->
-                                    <div>
-                                        <label class="form-label" for="fechaRegistroProdcuto">Fecha:</label>
-                                        <input class="form-control" type="datetime-local" th:field="*{FechaVenta}">
-                                    </div>
-                                    <div>
-                                        <label class="form-label" for="PagoTotal">Total a Pagar:</label>
-                                        <input class="form-control" type="text" aria-label="" id="ValorPagar" disabled readonly>
-                                    </div>
-                                    <div class="mt-4">
-                                        <button class="btn btn-primary" type="submit">Guardar</button>
-                                    </div>
-                                </form>
+                                <!--Tabla Productos-->
+                                <h5 class="card-title fw-semibold mb-4">Productos</h5>
+                                <div class="table-responsive">
+                                    <table class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Producto</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Precio</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Categoria</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Stock</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Unidad de Medida</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Fecha de Registro</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Acción:</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="Producto:${listaProductos}">
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.nombreProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.precioProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <span class="fw-normal"
+                                                        th:text="${Producto.categoriaProdProducto.Categoria}"></span>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <p class="mb-0 fw-normal" th:text="${Producto.stockProducto}"></p>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <span class="fw-normal"
+                                                        th:text="${Producto.unidadMedidaProducto.SimboloUnidadMedida}"></span>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Producto.fechaRegistroProdcuto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-primary"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                Añadir al Carrito
+                                                            </button>
+
+                                                            <!-- Modal -->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h1 class="modal-title fs-5"
+                                                                                id="exampleModalLabel">Modal title</h1>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form action="" method="post">
+                                                                                
+                                                                            </form>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-bs-dismiss="modal">Cerrar</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Confirmar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--End Modal-->
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--End Tabla Productos-->
+                                <h5 class="card-title fw-semibold mb-4">Detalle de la Compra:</h5>
+                                <div class="table-responsive">
+                                    <table class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Producto</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Precio</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Cantidad</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Fecha de Registro</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Acción:</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="Detalle:${listaDetalles}">
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Detalle.producto.nombreProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Detalle.producto.precioProducto}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                        <form action="" method="post">
+                                                            <input type="number" name="Cantidad" id="Cantidad" th:text="${Detalle.Cantidad}">
+                                                        </form>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Detalle.venta.FechaVenta}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <a href="">
+                                                        <button type="button">Eliminar</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--Form End-->
             </div>
             <!--Body End-->
         </div>
