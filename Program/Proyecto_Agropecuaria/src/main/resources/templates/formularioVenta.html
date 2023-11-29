@@ -193,40 +193,10 @@
                                                 <td class="border-bottom-0">
                                                     <div class="d-flex align-items-center gap-2">
                                                         <span class="badge bg-primary rounded-3 fw-semibold">
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                                Añadir al Carrito
-                                                            </button>
-
-                                                            <!-- Modal -->
-                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h1 class="modal-title fs-5"
-                                                                                id="exampleModalLabel">Modal title</h1>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close"></button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <form action="" method="post">
-                                                                                
-                                                                            </form>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button"
-                                                                                class="btn btn-secondary"
-                                                                                data-bs-dismiss="modal">Cerrar</button>
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary">Confirmar</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!--End Modal-->
+                                                            <a th:href="@{/venta/formVenta/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                                <button type="button"
+                                                                    class="bg-primary btn-primary btn-outline-primary">Añadir al Carrito</button>
+                                                            </a>
                                                         </span>
                                                     </div>
                                                 </td>
@@ -235,6 +205,7 @@
                                     </table>
                                 </div>
                                 <!--End Tabla Productos-->
+                                <!--Tabla Detalles-->
                                 <h5 class="card-title fw-semibold mb-4">Detalle de la Compra:</h5>
                                 <div class="table-responsive">
                                     <table class="table text-nowrap mb-0 align-middle">
@@ -284,6 +255,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <!--End Tabla Detalles-->
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 package com.jair.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,10 @@ public class VentaServicios {
 	
 	public List<Venta> ListarVentas(){
 		return repository.findAll();
+	}
+	
+	public Venta VentaById(long IdVenta) {
+		return repository.findById(IdVenta).get();
 	}
 	
 }

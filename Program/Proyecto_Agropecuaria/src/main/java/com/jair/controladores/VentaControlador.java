@@ -43,17 +43,13 @@ public class VentaControlador {
 	@GetMapping("/formVenta")
 	public String formGenerarVenta(Model model) {
 		venta.setFechaVenta(LocalDate.now());
-		
-		Ventaservicios.GenerarVenta(venta);
-		
-		System.out.println(venta.getIdVenta());
-				
+		Ventaservicios.GenerarVenta(venta);	
 		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		model.addAttribute("listaDetalles", detalleServicios.listByVenta(venta));
 		return "formularioVenta";
 	}
 
-	public void GenerarDetalle(@PathVariable("IdProducto") long IdProducto, @ModelAttribute("Venta") Venta venta) {
+	public String GenerarDetalle(@PathVariable("IdProducto") long IdProducto) {
 		
 		Detalle detalle = new Detalle();
 		Producto p = productoServicios.BuscarProducto(IdProducto);
@@ -66,20 +62,16 @@ public class VentaControlador {
 		if(p.getStockProducto() > detalle.getCantidad()) {
 			Ventaservicios.GenerarVenta(venta);
 			detalleServicios.CrearDetalle(detalle);
+			
+			return "redirect:/detalle/formDetalle" + venta.getIdVenta();
+			
 		}
+		
+		return "ventaError";
+		
 	}
 	
-	public void ActualizarDetalle(@PathVariable("Cantidad") int Cantidad, @ModelAttribute("Detalle")Detalle detalle) {
-		
-		detalle.setCantidad(Cantidad);
-		detalleServicios.ActualizarDetalle(detalle);
-		
-		//Actualizacion de Stock
-		Producto producto = detalle.getProducto();
-		producto.setStockProducto(producto.getStockProducto() - Cantidad);
-		productoServicios.ActualizarProducto(producto);
-		
-	}
+	
 
 	/*
 	 * @PostMapping("/generarVenta") public String
