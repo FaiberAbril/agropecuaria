@@ -31,4 +31,8 @@ public class DetalleServicios {
 		detalleRepository.deleteById(IdDetalle);
 	}
 	
+	public List<Detalle> listaDetalles(){
+		return detalleRepository.findAll();
+	}
+	
 }
