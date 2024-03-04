@@ -37,39 +37,25 @@ public class VentaControlador {
 	@Autowired
 	private ProductoServicios productoServicios;
 	
-	Venta venta = new Venta();
+
+	@GetMapping("/")
+	public String ventas(Model model) {
+		return "";
+	}
 
 	
 	@GetMapping("/formVenta")
 	public String formGenerarVenta(Model model) {
+		Venta venta = new Venta();
 		venta.setFechaVenta(LocalDate.now());
-		Ventaservicios.GenerarVenta(venta);	
+		Ventaservicios.GenerarVenta(venta);
+		model.addAttribute("venta", venta);
 		model.addAttribute("listaProductos", productoServicios.ListarProducto());
 		model.addAttribute("listaDetalles", detalleServicios.listByVenta(venta));
 		return "formularioVenta";
 	}
 
-	public String GenerarDetalle(@PathVariable("IdProducto") long IdProducto) {
-		
-		Detalle detalle = new Detalle();
-		Producto p = productoServicios.BuscarProducto(IdProducto);
-		
-		detalle.setProducto(p);
-		detalle.setCantidad(1);
-		detalle.setVenta(venta);
-		
-		//Validacion de Venta
-		if(p.getStockProducto() > detalle.getCantidad()) {
-			Ventaservicios.GenerarVenta(venta);
-			detalleServicios.CrearDetalle(detalle);
-			
-			return "redirect:/detalle/formDetalle" + venta.getIdVenta();
-			
-		}
-		
-		return "ventaError";
-		
-	}
+	
 	
 	
 

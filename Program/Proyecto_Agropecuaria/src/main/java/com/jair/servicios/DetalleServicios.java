@@ -31,4 +31,8 @@ public class DetalleServicios {
 		detalleRepository.deleteById(IdDetalle);
 	}
 	
+	public long idVentabyIdDetalle(long IdDetalle) {
+		return detalleRepository.getById(IdDetalle).getVenta().getIdVenta();
+	}
+	
 }

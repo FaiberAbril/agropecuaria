@@ -193,9 +193,11 @@
                                                 <td class="border-bottom-0">
                                                     <div class="d-flex align-items-center gap-2">
                                                         <span class="badge bg-primary rounded-3 fw-semibold">
-                                                            <a th:href="@{/venta/formVenta/{IdProducto}(IdProducto=${Producto.IdProducto})}">
+                                                            <a
+                                                                th:href="@{/detalle/GenerarDetalle/{IdProducto}/{IdVenta}(IdProducto=${Producto.IdProducto}, IdVenta=${venta.IdVenta})}">
                                                                 <button type="button"
-                                                                    class="bg-primary btn-primary btn-outline-primary">Añadir al Carrito</button>
+                                                                    class="bg-primary btn-primary btn-outline-primary">Añadir
+                                                                    al Carrito</button>
                                                             </a>
                                                         </span>
                                                     </div>
@@ -205,6 +207,15 @@
                                     </table>
                                 </div>
                                 <!--End Tabla Productos-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 d-flex align-items-stretch">
+                    <div class="card w-100">
+                        <div class="card-body p-4">
+                            <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
+                            <div class="card-body">
                                 <!--Tabla Detalles-->
                                 <h5 class="card-title fw-semibold mb-4">Detalle de la Compra:</h5>
                                 <div class="table-responsive">
@@ -232,23 +243,26 @@
                                             <tr th:each="Detalle:${listaDetalles}">
                                                 <td class="border-bottom-0">
                                                     <h6 class="fw-semibold mb-0 fs-4"
-                                                        th:text="${Detalle.producto.nombreProducto}"></h6>
+                                                        th:text="${Detalle.producto.nombreProducto}">
+                                                    </h6>
                                                 </td>
                                                 <td class="border-bottom-0">
                                                     <h6 class="fw-semibold mb-0 fs-4"
-                                                        th:text="${Detalle.producto.precioProducto}"></h6>
+                                                        th:text="${Detalle.producto.precioProducto}">
+                                                    </h6>
                                                 </td>
                                                 <td class="border-bottom-0">
-                                                        <form action="" method="post">
-                                                            <input type="number" name="Cantidad" id="Cantidad" th:text="${Detalle.Cantidad}">
-                                                        </form>
+                                                    <form action="" method="post">
+                                                        <input type="number" name="Cantidad" id="Cantidad"
+                                                            th:text="${Detalle.Cantidad}">
+                                                    </form>
                                                 </td>
                                                 <td class="border-bottom-0">
                                                     <h6 class="fw-semibold mb-0 fs-4"
                                                         th:text="${Detalle.venta.FechaVenta}"></h6>
                                                 </td>
                                                 <td class="border-bottom-0">
-                                                    <a href="">
+                                                    <a th:href="@{/detalle/eliminarDetalle/{IdDetalle}(IdDetalle=${Detalle.IdDetalle})}">
                                                         <button type="button">Eliminar</button>
                                                     </a>
                                                 </td>
@@ -262,11 +276,15 @@
                     </div>
                 </div>
             </div>
-            <!--Body End-->
         </div>
-        <!--  Main wrapper End -->
+    </div>
+    <!--Body End-->
     </div>
     <!--Body Wrapper End-->
+    </div>
+    <!--  Main wrapper End -->
+    </div>
+
     <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
     <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/sidebarmenu.js}"></script>
@@ -275,5 +293,6 @@
     <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
     <script th:src="@{/js/dashboard.js}"></script>
 </body>
+
 
 </html>

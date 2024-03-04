@@ -138,11 +138,11 @@
                             <div class="card-body">
                                 <form th:action="@{/categoria/guardarCategoria}" method="post" th:object="${ObjCategoria}">
                                     <div>
-                                        <label for="NombreUnidadMedida" class="form-label">Unidad de Medida:</label>
+                                        <label for="NombreUnidadMedida" class="form-label">Categoria:</label>
                                         <input type="text" class="form-control" th:field="*{Categoria}">
                                     </div>
                                     <div>
-                                        <label class="form-label" for="SimboloUnidadMedida">Simbolo de Unidad de Medida:</label>
+                                        <label class="form-label" for="SimboloUnidadMedida">Descripción:</label>
                                         <input class="form-control" type="text" th:field="*{descripcionCategoria}">
                                     </div>
                                     <div class="mt-4">
