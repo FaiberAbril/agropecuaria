@@ -32,8 +32,7 @@ public class VentaControlador {
 	
 	@GetMapping("/")
 	public String paginaVentas(Model model) {
-		List<Detalle> detalles = detalleServicios.listaDetalles();
-		model.addAttribute("listaVentas", detalles);
+		model.addAttribute("listaVentas", detalleServicios.listarDetalles());
 		return "ventas";
 	}
 	

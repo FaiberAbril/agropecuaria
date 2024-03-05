@@ -35,4 +35,8 @@ public class DetalleServicios {
 		return detalleRepository.getById(IdDetalle).getVenta().getIdVenta();
 	}
 	
+	public List<Detalle> listarDetalles(){
+		return detalleRepository.findAll();
+	}
+	
 }
