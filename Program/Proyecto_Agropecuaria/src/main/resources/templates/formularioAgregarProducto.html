@@ -144,23 +144,23 @@
                                 <form th:action="@{/producto/guardarProducto}" method="post" th:object="${ObjProducto}">
 
                                     <div>
-                                        <label for="nombreProducto" class="form-label">Producto:</label>
-                                        <input type="text" class="form-control" th:field="*{nombreProducto}">
+                                        <label for="nombreProducto" class="form-label">Producto *</label>
+                                        <input type="text" class="form-control" th:field="*{nombreProducto}" required>
                                     </div>
                                     <div>
-                                        <label class="form-label" for="descripcionProducto">Descripción:</label>
+                                        <label class="form-label" for="descripcionProducto">Descripción</label>
                                         <input class="form-control" type="text" th:field="*{descripcionProducto}">
                                     </div>
                                     <div>
-                                        <label class="form-label" for="stockProducto">Stock:</label>
-                                        <input class="form-control" type="text" th:field="*{stockProducto}">
+                                        <label class="form-label" for="stockProducto">Stock *</label>
+                                        <input class="form-control" type="number" th:field="*{stockProducto}" required>
                                     </div>
                                     <div>
-                                        <label class="form-label" for="precioProducto">Precio:</label>
-                                        <input class="form-control" type="number" th:field="*{precioProducto}">
+                                        <label class="form-label" for="precioProducto">Precio *</label>
+                                        <input class="form-control" type="number" th:field="*{precioProducto}" required>
                                     </div>
                                     <div>
-                                        <label class="form-label" for="categoriaProdProducto">Categoria:</label>
+                                        <label class="form-label" for="categoriaProdProducto">Categoria *</label>
                                         <select class="form-select" th:field="*{categoriaProdProducto}" name="select" id="select">
                                             <option th:each="CategoriaProducto:${listaCategoria}"
                                                 th:value="${CategoriaProducto.IdCategoriaProdcuto}"
@@ -168,7 +168,7 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="form-label" for="unidadMedidaProducto">Unidad de Medida:</label>
+                                        <label class="form-label" for="unidadMedidaProducto">Unidad de Medida *</label>
                                         <select class="form-select" name="select" id="select" th:field="*{unidadMedidaProducto}">
                                             <option th:each="UnidadMedida:${listaUnidadesMedida}"
                                                 th:value="${UnidadMedida.IdUnidadesMedida}"
@@ -176,8 +176,8 @@
                                         </select>
                                     </div>
                                     <div>
-                                        <label class="form-label" for="fechaRegistroProdcuto">Fecha de Registro:</label>
-                                        <input class="form-control" type="date" th:field="*{fechaRegistroProdcuto}">
+                                        <label class="form-label" for="fechaRegistroProdcuto">Fecha de Registro *</label>
+                                        <input class="form-control" type="date" th:field="*{fechaRegistroProdcuto}" required>
                                     </div>
                                     <div class="mt-4">
                                         <button class="btn btn-primary" type="submit">Guardar</button>

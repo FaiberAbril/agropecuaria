@@ -1,5 +1,6 @@
 package com.jair.modelos;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,24 +30,27 @@ public class Venta {
 	private String DescuentoVenta;
 
 	@Column
-	private double PagoTotal;
 
-	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
-	private Date FechaVenta;
+	private LocalDate FechaVenta;
 
 	public Venta() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Venta(long idVenta, String descuentoVenta, double pagoTotal, Date fechaVenta) {
+	public Venta(long idVenta, String descuentoVenta, LocalDate fechaVenta) {
 		super();
 		IdVenta = idVenta;
 		DescuentoVenta = descuentoVenta;
-		PagoTotal = pagoTotal;
 		FechaVenta = fechaVenta;
 	}
+	
+	
+	public Venta(LocalDate fechaVenta) {
+		FechaVenta = fechaVenta;
+	}
+	
 
 	public long getIdVenta() {
 		return IdVenta;
@@ -64,19 +68,11 @@ public class Venta {
 		DescuentoVenta = descuentoVenta;
 	}
 
-	public double getPagoTotal() {
-		return PagoTotal;
-	}
-
-	public void setPagoTotal(double pagoTotal) {
-		PagoTotal = pagoTotal;
-	}
-
-	public Date getFechaVenta() {
+	public LocalDate getFechaVenta() {
 		return FechaVenta;
 	}
 
-	public void setFechaVenta(Date fechaVenta) {
+	public void setFechaVenta(LocalDate fechaVenta) {
 		FechaVenta = fechaVenta;
 	}
 

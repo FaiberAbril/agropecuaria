@@ -3,7 +3,6 @@ package com.jair.modelos;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -12,30 +11,35 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "detallePedido")
+@Table(name="detalles")
 public class Detalle {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdDetalle;
 	
-	@JoinColumn(nullable = true)
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private Pedido pedido;
-	
-	@JoinColumn(nullable = true)
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn()
 	private Producto producto;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn()
+	private Venta venta;
+	
+	@Column
+	private int Cantidad;
+
 	public Detalle() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Detalle(long idDetalle, Pedido pedido, Producto producto) {
+	public Detalle(long idDetalle, Producto producto, Venta venta, int cantidad) {
 		super();
 		IdDetalle = idDetalle;
-		this.pedido = pedido;
 		this.producto = producto;
+		this.venta = venta;
+		Cantidad = cantidad;
 	}
 
 	public long getIdDetalle() {
@@ -46,20 +50,28 @@ public class Detalle {
 		IdDetalle = idDetalle;
 	}
 
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
-
 	public Producto getProducto() {
 		return producto;
 	}
 
 	public void setProducto(Producto producto) {
 		this.producto = producto;
+	}
+
+	public Venta getVenta() {
+		return venta;
+	}
+
+	public void setVenta(Venta venta) {
+		this.venta = venta;
+	}
+
+	public int getCantidad() {
+		return Cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		Cantidad = cantidad;
 	}
 	
 }

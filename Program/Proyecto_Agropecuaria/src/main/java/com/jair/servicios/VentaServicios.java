@@ -1,6 +1,7 @@
 package com.jair.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,10 @@ public class VentaServicios {
 		return repository.findAll();
 	}
 	
+
+	public Venta VentaById(long IdVenta) {
+		return repository.findById(IdVenta).get();
+
 	/*
 	public String IdProducto(long IdVenta) {
 		return repository.findById(IdVenta).get().getProductoVenta().getNombreProducto();
@@ -50,6 +55,7 @@ public class VentaServicios {
 	public double CalcularMonto(int Cantidad, double Precio) {
 		double TotalPago = Cantidad * Precio;
 		return TotalPago;
+
 	}
 	*/
 	

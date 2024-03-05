@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jair.modelos.Detalle;
-import com.jair.modelos.Pedido;
+
+import com.jair.modelos.Venta;
 import com.jair.repositorios.DetalleRepository;
 
 @Service
 public class DetalleServicios {
-	
+
 	@Autowired
 	private DetalleRepository detalleRepository;
 	
@@ -23,15 +24,21 @@ public class DetalleServicios {
 		detalleRepository.save(detalle);
 	}
 	
-	public List<Detalle> ListarDetalles(){
-		return detalleRepository.findAll();
+
+	public List<Detalle> listByVenta(Venta venta){
+		return detalleRepository.findByVenta(venta);
 	}
 	
-	public List<Detalle> ListByPedido(Pedido pedido){
-		return detalleRepository.findByPedido(pedido);
+	public void EliminarDetalle(long IdDetalle) {
+		detalleRepository.deleteById(IdDetalle);
 	}
 	
-	public List<Detalle> ListaDetalles(){
+	public long idVentabyIdDetalle(long IdDetalle) {
+		return detalleRepository.getById(IdDetalle).getVenta().getIdVenta();
+	}
+	
+	public List<Detalle> listarDetalles(){
+
 		return detalleRepository.findAll();
 	}
 	
