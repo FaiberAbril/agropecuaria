@@ -1,28 +1,20 @@
 package com.jair.controladores;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.jair.modelos.Producto;
-import com.jair.modelos.Venta;
 import com.jair.modelos.Detalle;
+import com.jair.modelos.Venta;
 import com.jair.servicios.DetalleServicios;
 import com.jair.servicios.ProductoServicios;
 import com.jair.servicios.VentaServicios;
 
-import jakarta.websocket.server.PathParam;
 
 @Controller
 @RequestMapping("/venta")
@@ -36,18 +28,12 @@ public class VentaControlador {
 
 	@Autowired
 	private ProductoServicios productoServicios;
+
 	
-
 	@GetMapping("/")
-	public String ventas(Model model) {
-		return "";
-	}
-
-	@GetMapping("/")
-	public String vistaVenta(Model model) {
-		
-		model.addAttribute("listaVentas", detalleServicios.listaDetalles());
-		
+	public String paginaVentas(Model model) {
+		List<Detalle> detalles = detalleServicios.listaDetalles();
+		model.addAttribute("listaVentas", detalles);
 		return "ventas";
 	}
 	

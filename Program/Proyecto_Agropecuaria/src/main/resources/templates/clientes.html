@@ -1,71 +1,254 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
-	<title>Clientes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agropecuaria Rovirense</title>
+    <link rel="shortcut icon" type="image/png" th:href="@{/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg}" />
+    <link rel="stylesheet" th:href="@{/css/styles.min.css}" />
 </head>
 
 <body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div>
+                <div class="brand-logo d-flex align-items-center justify-content-between">
+                    <a th:href="@{/principal/}" class="text-nowrap logo-img">
+                        <img src="/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg" class="img-fluid" />
+                    </a>
+                    <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                        <i class="ti ti-x fs-8"></i>
+                    </div>
+                </div>
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Principal</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" th:href="@{/principal/}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Pagina Principal</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" th:href="@{/venta/}" aria-expanded="false">
+                              <span>
+                                <i class="ti ti-shopping-cart"></i>
+                              </span>
+                              <span class="hide-menu">Venta</span>
+                            </a>
+                          </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Inventario</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" th:href="@{/producto/}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-package"></i>
+                                </span>
+                                <span class="hide-menu">Productos</span>
+                            </a>
+                        </li>
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Administración</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" th:href="@{/cliente/}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-user"></i>
+                                </span>
+                                <span class="hide-menu">Clientes</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" th:href="@{/profesional/}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-id-badge"></i>
+                                </span>
+                                <span class="hide-menu">Profesionales</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            <header class="app-header">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-block d-xl-none">
+                            <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse"
+                                href="javascript:void(0)">
+                                <i class="ti ti-menu-2"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+                        <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+                            <li class="nav-item align-items-center justify-content-between">
+                                <h1>Agropecuaria el Rovirense</h1>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img th:src="@{/images/profile/user-1.jpg}" alt="" width="35" height="35"
+                                        class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                                    aria-labelledby="drop2">
+                                    <div class="message-body">
+                                        <a href="javascript:void(0)"
+                                            class="d-flex align-items-center gap-2 dropdown-item">
+                                            <i class="ti ti-user fs-6"></i>
+                                            <p class="mb-0 fs-3">Mi Perfil</p>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <!--  Header End -->
+            <!--Main Start-->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 col-xl-3 col-lg-6">
+                        <div class="card overflow-hidden rounded-2">
+                            <div class="position-relative">
+                                <div class="card-body pt-3 p-4 row">
+                                    <div class="col-6 text-center mt-2">
+                                        <h6 class="fw-semibold fs-4">Agregar Cliente</h6>
+                                    </div>
+                                    <div class="col-6 text-center">
+                                        <a th:href="@{/cliente/agregarCliente}"
+                                            class="bg-primary rounded-circle p-2 text-white d-inline-flex bottom-0 end-0 mb-n3 me-3 text-center"
+                                            data-bs-toggle="tooltip" data-bs-placement="top"
+                                            data-bs-title="Add To Cart"><i class="ti ti-folder fs-4"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Table Unidad Medida Start-->
+                    <div class="col-lg-12 d-flex align-items-stretch">
+                        <div class="card w-100">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-semibold mb-4">Clientes</h5>
+                                <div class="table-responsive">
+                                    <table class="table text-nowrap mb-0 align-middle">
+                                        <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Nombre</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Apellido</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Dirección</h6>
+                                                </th>
+												<th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Telefono</h6>
+                                                </th>
+												<th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Email</h6>
+                                                </th>
+												<th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Documento de Identidad</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Elimanar</h6>
+                                                </th>
+												<th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Actualizar</h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="Cliente:${listaClientes}">
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.nombreCliente}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.apellidoCliente}"></h6>
+                                                </td>
+												<td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.direccion}"></h6>
+                                                </td>
+												<td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.telefono}"></h6>
+                                                </td>
+												<td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.email}"></h6>
+                                                </td>
+												<td class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0 fs-4"
+                                                        th:text="${Cliente.CedulaCliente}"></h6>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                            <a th:href="@{/cliente/eliminarCliente/{idCliente}(idCliente=${Cliente.idCliente})}">
+                                                                <button type="button"
+                                                                    class="bg-primary btn-primary btn-outline-primary">Eliminar</button>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                                <td class="border-bottom-0">
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <span class="badge bg-primary rounded-3 fw-semibold">
+                                                            <a th:href="@{/cliente/formActuActualizarCliente/{idCliente}(idCliente=${Cliente.idCliente})}">
+                                                                <button type="button"
+                                                                    class="bg-primary btn-primary btn-outline-primary">Actualizar</button>
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Main End-->
+        </div>
 
-	<div>
-		<h1>Cliente</h1>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col">
-			<a th:href="@{/principal/}">
-				<button class="btn btn-primary" type="submit">Volver</button>
-			</a>
-		</div>
-		<div class="col">
-			<a th:href="@{/cliente/agregarCliente}">
-				<button class="btn btn-primary" type="submit">Nuevo Cliente</button>
-			</a>
-		</div>
-	</div>
-	<br>
-	<div>
-		<table>
-			<thead>
-				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Dirección</th>
-					<th>Telefono</th>
-					<th>Email</th>
-					<th>Documento de Identidad</th>
-					<th>Actualizar</th>
-					<th>Eliminar</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="Cliente:${listaClientes}">
-					<td th:text="${Cliente.nombreCliente}"></td>
-					<td th:text="${Cliente.apellidoCliente}"></td>
-					<td th:text="${Cliente.direccion}"></td>
-					<td th:text="${Cliente.telefono}"></td>
-					<td th:text="${Cliente.email}"></td>
-					<td th:text="${Cliente.CedulaCliente}"></td>
-					<td>
-						<a th:href="@{/cliente/formActualizarCliente/{idCliente}(idCliente=${Cliente.idCliente})}">
-							<button type="button">Actulizar</button>
-						</a>
-					</td>
-					<td>
-						<a th:href="@{/producto/formActualizarProducto/{idCliente}(idCliente=${Cliente.idCliente})}">
-							<button type="button">Actualizar</button>
-						</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-	<script th:src="@{/js/bootstrap.min.js}"></script>
-	<script th:src="@{/js/code.jquery.com_jquery-3.7.1.min.js}"></script>
+    </div>
+    <script th:src="@{/libs/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{/libs/bootstrap/dist/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/sidebarmenu.js}"></script>
+    <script th:src="@{/js/app.min.js}"></script>
+    <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
+    <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
+    <script th:src="@{/js/dashboard.js}"></script>
 </body>
 
 </html>
