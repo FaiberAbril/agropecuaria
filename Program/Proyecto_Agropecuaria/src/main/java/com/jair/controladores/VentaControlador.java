@@ -43,6 +43,13 @@ public class VentaControlador {
 		return "";
 	}
 
+	@GetMapping("/")
+	public String vistaVenta(Model model) {
+		
+		model.addAttribute("listaVentas", detalleServicios.listaDetalles());
+		
+		return "ventas";
+	}
 	
 	@GetMapping("/formVenta")
 	public String formGenerarVenta(Model model) {
