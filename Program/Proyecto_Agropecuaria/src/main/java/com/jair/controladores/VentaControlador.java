@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.jair.modelos.Detalle;
 import com.jair.modelos.Venta;
 import com.jair.servicios.DetalleServicios;
@@ -28,16 +29,22 @@ public class VentaControlador {
 
 	@Autowired
 	private ProductoServicios productoServicios;
+	
+	@Autowired
+	private PedidoServicios pedidoServicios;
+
 
 	
 	@GetMapping("/")
 	public String paginaVentas(Model model) {
 		model.addAttribute("listaVentas", detalleServicios.listarDetalles());
+
 		return "ventas";
 	}
 	
 	@GetMapping("/formVenta")
 	public String formGenerarVenta(Model model) {
+
 		Venta venta = new Venta();
 		venta.setFechaVenta(LocalDate.now());
 		Ventaservicios.GenerarVenta(venta);
@@ -74,4 +81,5 @@ public class VentaControlador {
 	 * 
 	 * return "redirect:/venta/"; } else { return "ventaError"; } }
 	 */
+
 }

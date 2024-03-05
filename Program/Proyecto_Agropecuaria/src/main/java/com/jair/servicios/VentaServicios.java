@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jair.modelos.Pedido;
 import com.jair.modelos.Venta;
+import com.jair.repositorios.PedidoRepository;
 import com.jair.repositorios.VentaRepository;
 
 @Service
@@ -15,8 +17,15 @@ public class VentaServicios {
 	@Autowired
 	private VentaRepository repository;
 	
-	public void GenerarVenta(Venta venta) {
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	public Pedido GenerarVenta(Venta venta) {
 		repository.save(venta);
+		Pedido p = new Pedido();
+		p.setVenta(venta);
+		pedidoRepository.save(p);
+		return p;
 	}
 	
 	public void ActualizarVenta(Venta venta) {
@@ -27,8 +36,29 @@ public class VentaServicios {
 		return repository.findAll();
 	}
 	
+
 	public Venta VentaById(long IdVenta) {
 		return repository.findById(IdVenta).get();
+
+	/*
+	public String IdProducto(long IdVenta) {
+		return repository.findById(IdVenta).get().getProductoVenta().getNombreProducto();
 	}
+	
+	public boolean CantidadStock(int Cantidad, int Stock) {
+		if (Cantidad<Stock) {
+			return true;
+		}
+		return false;
+	}
+	
+	public double CalcularMonto(int Cantidad, double Precio) {
+		double TotalPago = Cantidad * Precio;
+		return TotalPago;
+
+	}
+	*/
+	
+	
 	
 }

@@ -170,12 +170,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr th:each="Venta:${listaVentas}">
+                      <tr th:each="Detalle:${listaDetalles}">
                         <td class="border-bottom-0">
                           <span class="fw-normal" th:text="${Venta.producto.nombreProducto}"></span>
                         </td>
                         <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Venta.Cantidad}"></h6>
+                          <h6 class="fw-semibold mb-0 fs-4" th:text="${Detalle.pedido.Cantidad}"></h6>
                         </td>
                         <td class="border-bottom-0">
                           <h6 class="fw-semibold mb-0 fs-4" th:text="${Venta.venta.fechaVenta}"></h6>

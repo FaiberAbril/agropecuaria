@@ -19,21 +19,22 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="ventas")
+@Table(name = "ventas")
 public class Venta {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long IdVenta;
-	
+
 	@Column(nullable = true)
 	private String DescuentoVenta;
-	
+
 	@Column
+
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private LocalDate FechaVenta;
-	
+
 	public Venta() {
 		// TODO Auto-generated constructor stub
 	}
@@ -74,5 +75,5 @@ public class Venta {
 	public void setFechaVenta(LocalDate fechaVenta) {
 		FechaVenta = fechaVenta;
 	}
-	
+
 }

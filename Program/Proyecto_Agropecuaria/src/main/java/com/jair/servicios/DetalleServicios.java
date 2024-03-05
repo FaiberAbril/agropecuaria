@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jair.modelos.Detalle;
+
 import com.jair.modelos.Venta;
 import com.jair.repositorios.DetalleRepository;
 
@@ -23,6 +24,7 @@ public class DetalleServicios {
 		detalleRepository.save(detalle);
 	}
 	
+
 	public List<Detalle> listByVenta(Venta venta){
 		return detalleRepository.findByVenta(venta);
 	}
@@ -36,6 +38,7 @@ public class DetalleServicios {
 	}
 	
 	public List<Detalle> listarDetalles(){
+
 		return detalleRepository.findAll();
 	}
 	

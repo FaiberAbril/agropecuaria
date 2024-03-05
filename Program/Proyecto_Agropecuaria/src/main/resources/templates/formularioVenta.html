@@ -1,13 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Agropecuaria Rovirense</title>
     <link rel="shortcut icon" type="image/png" th:href="@{/images/logos/Logo_Agropecuaria_el_Rovirense.jpeg}" />
     <link rel="stylesheet" th:href="@{/css/styles.min.css}" />
-    <script th:src="@{/js/CapturaProducto.js}"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+
 </head>
 
 <body>
@@ -110,7 +113,7 @@
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <img th:src="@{/images/profile/user-1.jpg}" alt="" width="35" height="35"
-                                        class="rounded-circle">
+                                        class="rounded-circle" />
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -136,6 +139,7 @@
                         <div class="card-body p-4">
                             <h5 class="card-title fw-semibold mb-4">Generar Venta</h5>
                             <div class="card-body">
+
                                 <!--Tabla Productos-->
                                 <h5 class="card-title fw-semibold mb-4">Productos</h5>
                                 <div class="table-responsive">
@@ -281,6 +285,7 @@
     <!--Body End-->
     </div>
     <!--Body Wrapper End-->
+
     </div>
     <!--  Main wrapper End -->
     </div>
@@ -292,6 +297,8 @@
     <script th:src="@{/libs/apexcharts/dist/apexcharts.min.js}"></script>
     <script th:src="@{/libs/simplebar/dist/simplebar.js}"></script>
     <script th:src="@{/js/dashboard.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </body>
 
 
