@@ -54,6 +54,7 @@ public class SecurityConfig {
 					http.requestMatchers(HttpMethod.GET, "/principal/").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.GET, "/producto/", "/producto/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.GET, "/venta/", "/venta/**").hasAnyRole("ADMIN", "USER");
+					http.requestMatchers(HttpMethod.GET, "/detalle/", "/detalle/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.GET, "/categoria/", "/categoria/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.GET, "/unidadMedida/", "/unidadMedida/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.GET, "/rol/", "/rol/*").hasAnyRole("ADMIN", "USER");
@@ -61,6 +62,7 @@ public class SecurityConfig {
 					http.requestMatchers(HttpMethod.GET, "/profesional/", "/profesional/**").hasAnyRole("ADMIN", "USER");
 
 					//Metodos POST
+					http.requestMatchers(HttpMethod.POST, "/detalle/", "/detalle/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.POST, "/producto/", "/producto/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.POST, "/venta/", "/venta/**").hasAnyRole("ADMIN", "USER");
 					http.requestMatchers(HttpMethod.POST, "/categoria/", "/categoria/**").hasAnyRole("ADMIN", "USER");
